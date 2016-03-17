@@ -1,26 +1,79 @@
-body{background-color:#ccc}
-h1{color: red;}
-/*
-#sep123{
-border-top:0.1em solid #bbb;
-border-left:0.1em solid #bbb;
-border-right:0.2em solid #999;
-border-bottom:0.2em solid #999;
+body{
+font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+background-color:#dedede;
+margin:0px;
+padding:0px;
 }
-#sep0{
-border:1em solid #ccc;
-} */
+header{
+margin-top:0px;
+background-color:#333333;
+width:100%;
+height:90px;
+}
+header h1{
+margin:0px;
+padding-top:30px;
+padding-left:5%;
+position: absolute;
+color: white;
+}
+header ul{
+margin:0px;
+padding-left:72%;
+color:black;
+}
+header li{
+margin-top:30px;
+margin-left:40px;
+float:left;
+}
+header a{
+color:white;
+text-decoration:none;
+}
 .textblock{
-margin-bottom:0em;
-margin-left:1em;
-margin-right:1em;
-margin-top:1em;
-border-top:1px #cdcdcd;
-border-left:1px #cdcdcd;
-border-right:3px #848484;
-border-bottom:3px #848484;
-margin:1em;
+margin:2em;
+border-style: solid;
+border-color:#cdcdcd #848484 #848484 #cdcdcd;
+border-width:1px 3px 3px 1px;
+padding:2em;
+background-color:#fff;
 }
-.textblock h1{
-	
+.textblock h2{
+color:#636363;
+}
+.textblock h4{
+color:#636363;
+}
+.textblock p{
+text-indent:2em;
+line-height:180%;
+font-size: 135%;
+}
+.textblock ul{
+list-style:none;
+}
+.textblock li{
+font-size:120%;
+line-height:200%;
+}
+.sideline{
+margin:2em;
+border-style: solid;
+border-color:#cdcdcd #848484 #848484 #cdcdcd;
+border-width:1px 3px 3px 1px;
+padding:2em;
+background-color:#fff;	
+}
+footer{
+margin-top:0px;
+background-color:#000;
+width:100%;
+height:90px;
+}
+footer p{
+color:white;
+margin:30px;
+padding-top:30px;
+padding-left:45%;
 }
