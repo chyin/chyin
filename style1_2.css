@@ -1,0 +1,26 @@
+body{background-color:#ccc}
+h1{color: red;}
+/*
+#sep123{
+border-top:0.1em solid #bbb;
+border-left:0.1em solid #bbb;
+border-right:0.2em solid #999;
+border-bottom:0.2em solid #999;
+}
+#sep0{
+border:1em solid #ccc;
+} */
+.textblock{
+margin-bottom:0em;
+margin-left:1em;
+margin-right:1em;
+margin-top:1em;
+border-top:1px #cdcdcd;
+border-left:1px #cdcdcd;
+border-right:3px #848484;
+border-bottom:3px #848484;
+margin:1em;
+}
+.textblock h1{
+	
+}
