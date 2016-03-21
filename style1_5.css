@@ -3,6 +3,7 @@ body{
 	background-color:#dedede;
 	margin:0px;
 	padding:0px;
+	position:relative;
 }
 .header{
 	margin-top:0px;
@@ -33,7 +34,7 @@ body{
 	
 }
 .mainbody{
-	margin:2em;
+	margin:2em 585px 2em 2em;
 	border-style: solid;
 	border-color:#cdcdcd #848484 #848484 #cdcdcd;
 	border-width:1px 3px 3px 1px;
@@ -60,12 +61,13 @@ body{
 	line-height:200%;
 }
 .picture{
-	margin:0 5em 2em;
+	margin:0 2em 2em;
 	width:12em;
 	border:1px solid #dedede;
 	font-size:80%;
 	padding:1em 1em 0;
 	text-align: center;
+	float:left;
 }
 .picture img{
 	width:100%;
@@ -91,6 +93,9 @@ th,td{
 	background: #ddd;
 }
 .sideline{
+	position:absolute;
+	top:90px;right:0;
+	width:450px;
 	margin:2em;
 	border-style: solid;
 	border-color:#cdcdcd #848484 #848484 #cdcdcd;
