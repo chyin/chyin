@@ -16,17 +16,22 @@ function addAqiData() {
   var city = document.getElementById("aqi-city-input").value.replace(/[(^\s+)(\s+$)]/g,"");
   var val = document.getElementById("aqi-value-input").value.replace(/[(^\s+)(\s+$)]/g,"");
   var re=/[^\u4e00-\u9fa5a-zA-Z]/g;
-  if(re.test(city)){
-  	alert("您输入的城市名称中包含非中英文字符!");
+  if(city==="" || val===""){
+  	alert("请填写城市名称和空气质量指数！");
   }
-  else if(val%1 === 0) {
-	var countx = aqiData.length;
-	aqiData[countx] = new Array(2);
-	aqiData[countx][0] = city;
-	aqiData[countx][1] = val;
-  }
-  else {
-  	alert("您输入的空气质量指数不是整数!");
+  else{
+    if(re.test(city)){
+      alert("您输入的城市名称中包含非中英文字符!");
+    }
+    else if(val%1 === 0) {
+  	  var countx = aqiData.length;
+  	  aqiData[countx] = new Array(2);
+  	  aqiData[countx][0] = city;
+  	  aqiData[countx][1] = val;
+    }
+    else {
+      alert("您输入的空气质量指数不是整数!");
+    }
   }
 }
 
@@ -37,18 +42,23 @@ function renderAqiList() {
   var aqitable = document.getElementById("aqi-table");
   var tempid;
   var aqitablei;
-  aqitable.innerHTML = "<tr><th>城市</th><th>空气质量</th><th>操作</td></tr>";
-  for(var i=0;i<aqiData.length;i++){
-    tempid = "delete" + i;
-    aqitablei = "<tr><td>" + aqiData[i][0] + "</td><td>" + aqiData[i][1] + "</td><td><button id=" + tempid + ">删除</button></td></tr>"
-	aqitable.innerHTML = aqitable.innerHTML + aqitablei;
+  if(aqiData.length===0){
+  	aqitable.innerHTML="";
   }
-  for(var i=0;i<aqiData.length;i++){
-    tempid = "delete" + i;
-    document.getElementById(tempid).onclick=function(){
-    	var obj=document.elementFromPoint(event.clientX,event.clientY);
-    	delBtnHandle(obj.id);
-    };
+  else{
+    aqitable.innerHTML = "<tr><th>城市</th><th>空气质量</th><th>操作</td></tr>";
+    for(var i=0;i<aqiData.length;i++){
+      tempid = "delete" + i;
+      aqitablei = "<tr><td>" + aqiData[i][0] + "</td><td>" + aqiData[i][1] + "</td><td><button id=" + tempid + ">删除</button></td></tr>"
+  	aqitable.innerHTML = aqitable.innerHTML + aqitablei;
+    }
+    for(var i=0;i<aqiData.length;i++){
+      tempid = "delete" + i;
+      document.getElementById(tempid).onclick=function(){
+      	var obj=document.elementFromPoint(event.clientX,event.clientY);
+      	delBtnHandle(obj.id);
+      };
+    }
   }
 }
 
@@ -73,11 +83,10 @@ function delBtnHandle(deletid) {
   for(var j=0;j<deli;j++){
   	aqide[j] = [aqiData[j][0],aqiData[j][1]];
   }
-  for(var k=deli;k<aqiData.length;k++){
+  for(var k=deli+1;k<aqiData.length;k++){
   	aqide[k-1] = [aqiData[k][0],aqiData[k][1]];
   }
   aqiData = aqide;
-  //alert(deli);
   renderAqiList();
 }
 
