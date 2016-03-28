@@ -1,3 +1,5 @@
+// 经检测，谷歌及谷歌内核的浏览器如果安装了购物党插件，有可能会导致javascript加载失效
+
 window.onload = function(){
 /* 数据格式演示
 var aqiSourceData = {
@@ -103,7 +105,7 @@ function renderChart() {
     // 鼠标移入移出时的变化
     striWrap.onmouseover=function(){
       var obj=document.elementFromPoint(event.clientX,event.clientY);
-      obj.style.cursor = "hand";  // pointer 亦可
+      obj.style.cursor = "pointer";  // hand 亦可
       obj.style.backgroundColor = "#111";
     }
     striWrap.onmouseout=function(){
