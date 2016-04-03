@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+  </head>
+<body>
+
+  <h3>污染城市列表</h3>
+  <ul id="aqi-list">
+<!--   
+    <li>第一名：福州（样例），10</li>
+    <li>第二名：福州（样例），10</li> -->
+  </ul>
+
+<script type="text/javascript">
+
+  var aqiData = [
+    ["北京", 90],
+    ["上海", 50],
+    ["福州", 10],
+    ["广州", 50],
+    ["成都", 90],
+    ["西安", 100]
+  ];
+
+  function find60() {
+    /*
+    在注释下方编写代码
+    遍历读取aqiData中各个城市的数据
+    将空气质量指数大于60的城市显示到aqi-list的列表中
+    */
+    /*
+    挑选出满足条件的项
+     */
+    var tempvector = new Array;
+    var count=0;
+    aqilist=document.getElementById("aqi-list");
+    for(var i=0;i<aqiData.length;i++){
+      if(aqiData[i][1]>60){
+        tempvector[count] = new Array(2);
+        tempvector[count][0]=aqiData[i][0];
+        tempvector[count][1]=aqiData[i][1];
+        count++;
+      }
+    }
+    /*
+    排序
+     */
+    var tempk,tempj,tempkp;
+    var tem1,tem2;
+    for(var k=0;k<tempvector.length-1;k++){
+      tempk = tempvector[k][1];
+      for(var j=k+1;j<tempvector.length;j++){
+        tempj = tempvector[j][1];
+        if(compare(tempk,tempj)==tempj){
+          tem1 = tempvector[k][0];
+          tempvector[k][0] = tempvector[j][0];
+          tempvector[j][0] = tem1;
+          tem2 = tempvector[k][1];
+          tempvector[k][1] = tempvector[j][1];
+          tempvector[j][1] = tem2;
+        }
+      }
+    }
+    /*
+    每个项对应出编号
+     */
+    var nolist = new Array(tempvector.length);
+    nolist[0] = 1;
+    for(k=1;k<tempvector.length;k++){
+      tempk = tempvector[k][1];
+      tempkp = tempvector[k-1][1];
+      if(compare(tempk,tempkp)!=-1){
+        nolist[k] = k+1;
+      }
+      else{
+        nolist[k] = nolist[k-1];
+      }
+    }
+    /*
+    输出
+     */
+    var temp;
+    for(k=0;k<tempvector.length;k++){
+      temp = aqilist.innerHTML;
+      aqilist.innerHTML = temp +"<li>"+"第"+nolist[k]+"名："+tempvector[k][0]+","+tempvector[k][1]+"</li>";
+    }
+  };
+  function compare(a,b){
+    if(a>b){
+      return(a);
+    }
+    else if(b>a){
+      return(b);
+    }
+    else{
+      return(-1);
+    }
+  };
+  find60();
+</script>
+</body>
+</html>
