@@ -7,7 +7,7 @@ window.onload = function(){
 			alert("Please input a number!")
 		}else{
 			inNum.length = inNum.length + 1;
-			for(var i=1;i<inNum.length;i++){
+			for(var i=inNum.length-1;i>0;i++){
 				inNum[i] = inNum[i-1];
 			}
 			inNum[0] = num;
@@ -15,7 +15,7 @@ window.onload = function(){
 		}
 	};
 	document.getElementById("rightin").onclick = function(){
-		var num = document.getElementById("number").value;
+		var num = parseInt(document.getElementById("number").value);
 		if(isNaN(num)){
 			alert("Please input a number!")
 		}else{
@@ -24,7 +24,7 @@ window.onload = function(){
 		}
 	};
 	document.getElementById("leftout").onclick = function(){
-		for(var i=0;i<inNum.length-1;i++){
+		for(var i=0;i<inNum.length-1;i--){
 			inNum[i] = inNum[i+1];
 		}
 		inNum.length = inNum.length - 1;
