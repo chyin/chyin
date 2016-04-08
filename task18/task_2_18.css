@@ -1,0 +1,8 @@
+.blockred{
+	float: left;
+	margin: 5px;
+	padding: 10px;
+	font-family: "微软雅黑";
+	background-color: #ff0000;
+	color: #ffffff;
+}
