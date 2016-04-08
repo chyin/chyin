@@ -1,0 +1,20 @@
+.blockred{
+	float: left;
+	width:1.105%;
+	vertical-align: bottom;
+	font-family: "微软雅黑";
+	position: absolute;
+	bottom: 0;
+}
+#divarea{
+	margin: 10px;
+	border: 1px solid #cccccc;
+	position: relative;
+	height: 320px;
+}
+/*
+#divorder{
+	clear: both;
+}
+
+ */
