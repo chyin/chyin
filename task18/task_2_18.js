@@ -49,7 +49,6 @@ window.onload = function(){
 			}
 		}
 		var oNum = document.getElementsByName("bred");
-		console.log(oNum.length);
 		for(var i=0; i<oNum.length; i++){
 			oNum[i].onclick = function(){
 				console.log(this.id);
