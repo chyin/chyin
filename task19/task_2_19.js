@@ -4,7 +4,7 @@ window.onload = function(){
 	var contain = 60;
 
 	document.getElementById("leftin").onclick = function(){
-		var num = document.getElementById("number").value;
+		var num = parseInt(document.getElementById("number").value);
 		if(inNum.length>contain-1){
 			alert("Couldn't add any number!")
 		}
@@ -107,28 +107,26 @@ window.onload = function(){
 	}
 
 	var count = new Array();
+	var timmer = 100;
 	document.getElementById("order").onclick = function(){
 		count = [0,1];
-		console.log(count);
-		var t = setTimeout("bubbleSort()",1000);
-		console.log(count);
-	}
-	function bubbleSort(){
-		if(inNum[count[0]]>inNum[count[1]]){
-			var tempjk = inNum[count[0]];
-			inNum[count[0]] = inNum[count[1]];
-			inNum[count[1]] = tempjk;
-		}
-		count[1] = count[1] + 1;
-		if(count[1]>inNum.length-1){
-			count[0] = count[0] + 1;
-			count[1] = count[0] + 1;
-		}
-		freshout();
-		if(count[0]<inNum.length-1){
-			console.log(count);
-			t = setTimeout("bubbleSort()",1000);
-			console.log(count);
+		var t = setTimeout(bubble,timmer);
+
+		function bubble(){
+			if(inNum[count[0]]>inNum[count[1]]){
+				var tempjk = inNum[count[0]];
+				inNum[count[0]] = inNum[count[1]];
+				inNum[count[1]] = tempjk;
+			}
+			count[1] = count[1] + 1;
+			if(count[1]>inNum.length-1){
+				count[0] = count[0] + 1;
+				count[1] = count[0] + 1;
+			}
+			freshout();
+			if(count[0]<inNum.length-1){
+				t = setTimeout(bubble,timmer);
+			}
 		}
 	}
 
