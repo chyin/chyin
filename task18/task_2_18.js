@@ -7,7 +7,7 @@ window.onload = function(){
 			alert("Please input a number!")
 		}else{
 			inNum.length = inNum.length + 1;
-			for(var i=inNum.length-1;i>0;i++){
+			for(var i=inNum.length-1;i>0;i--){
 				inNum[i] = inNum[i-1];
 			}
 			inNum[0] = num;
@@ -24,7 +24,7 @@ window.onload = function(){
 		}
 	};
 	document.getElementById("leftout").onclick = function(){
-		for(var i=0;i<inNum.length-1;i--){
+		for(var i=0;i<inNum.length-1;i++){
 			inNum[i] = inNum[i+1];
 		}
 		inNum.length = inNum.length - 1;
@@ -67,4 +67,5 @@ window.onload = function(){
 			}
 		}
 	}
+	freshout();
 }
