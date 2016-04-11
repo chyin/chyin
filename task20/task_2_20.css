@@ -1,0 +1,16 @@
+.blocknormal{
+	float: left;
+	margin: 5px;
+	padding: 10px;
+	font-family: "微软雅黑";
+	background-color: #ffffff;
+	color: #454545;
+	border: 1px solid #454545;
+}
+.blockblue{
+	color: blue;
+	font-weight: bold;
+}
+#inquiryArea{
+	clear: both;
+}
