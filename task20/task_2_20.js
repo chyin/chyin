@@ -103,6 +103,9 @@ window.onload = function(){
 				divarea.innerHTML = divarea.innerHTML + temptext;
 			}
 		}
+		freshaction();
+	}
+	function freshaction(){
 		var otextemp = document.getElementsByName("bred");
 		for(var i=0; i<otextemp.length; i++){
 			otextemp[i].onclick = function(){
@@ -148,6 +151,7 @@ window.onload = function(){
 				divarea.innerHTML = divarea.innerHTML + temptext;
 			}
 		}
+		freshaction();
 	};
 
 	freshout();
