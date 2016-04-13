@@ -2,6 +2,9 @@
 	margin: 0;
 	padding: 0;
 }
+body{
+	font-size: 1em;
+}
 button{
 	margin: 10px;
 }
@@ -13,6 +16,9 @@ button{
 	background-color: #ffffff;
 	color: #454545;
 	border: 1px solid #454545;
+}
+.blockNormal span{
+	display: none;
 }
 .blockDelete{
 	color: blue;
