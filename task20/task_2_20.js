@@ -3,7 +3,7 @@ window.onload = function(){
 
 	document.getElementById("leftin").onclick = function(){
 		var textemp = document.getElementById("inText").value;
-		spl = "\\s\\,\\.\\，\\/\\、\\\\";
+		spl = "\\s\\,\\.\\。\\，\\/\\、\\\\";
 		var reSpace=new RegExp("^["+spl+"]*(.*?)["+spl+"]*$");
 		var textem = textemp.replace(reSpace,"$1");
 		var spSpace = new RegExp("["+spl+"]+");
@@ -39,7 +39,7 @@ window.onload = function(){
 		// spl = "\s+|\,+|\.+|\，+|\\+|\/+|\、+";
 		// spl = "\\s+|\\,+|\\.+|\\，+|\\\+|\\/+|\\、+";
 		// spl = "[\\s\\,\\.\\，\\/\\、\\\\]";
-		spl = "\\s\\,\\.\\，\\/\\、\\\\";
+		spl = "\\s\\,\\.\\。\\，\\/\\、\\\\";
 		var reSpace=new RegExp("^["+spl+"]*(.*?)["+spl+"]*$");
 		// var reSpace=/^\s*(.*?)\s*$/;
 		// var reSpace=/^[\s\.]*(.*?)\s*$/;
@@ -127,7 +127,7 @@ window.onload = function(){
 
 	document.getElementById("inquiryButton").onclick = function(){
 		var inq = document.getElementById("inquiry").value;
-		spl = "\\s\\,\\.\\，\\/\\、\\\\";
+		spl = "\\s\\,\\.\\。\\，\\/\\、\\\\";
 		var reSpace=new RegExp("^["+spl+"]*(.*?)["+spl+"]*$");
 		var inqux = inq.replace(reSpace,"$1");
 		var inqu = new RegExp(inqux);
