@@ -1,22 +1,33 @@
-div{
-	margin: 10px;
+*{
+	margin: 0;
+	padding: 0;
 }
 button{
 	margin: 10px;
 }
-.blocknormal{
+.blockNormal{
 	float: left;
-	margin: 5px;
 	padding: 10px;
+	margin: 10px;
 	font-family: "微软雅黑";
 	background-color: #ffffff;
 	color: #454545;
 	border: 1px solid #454545;
 }
-.blockblue{
+.blockDelete{
 	color: blue;
 	font-weight: bold;
+	float: left;
+	padding: 10px;
+	margin: 10px;
+	font-family: "微软雅黑";
+	background-color: #ffffff;
+	border: 1px solid #454545;
 }
-#inquiryArea{
+#tagsArea{
+	margin: 20px;
+}
+#hobbyArea{
+	margin: 20px;
 	clear: both;
 }

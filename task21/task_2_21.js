@@ -1,6 +1,6 @@
 window.onload = function(){
 	var inText = new Array();
-
+/*
 	document.getElementById("leftin").onclick = function(){
 		var textemp = document.getElementById("inText").value;
 		spl = "\\s\\,\\.\\，\\/\\、\\\\";
@@ -128,7 +128,7 @@ window.onload = function(){
 	document.getElementById("inquiryButton").onclick = function(){
 		var inq = document.getElementById("inquiry").value;
 		spl = "\\s\\,\\.\\，\\/\\、\\\\";
-		var reSpace=new RegExp("^["+spl+"]*(.*?)["+spl+"]*$");
+		var reSpace=new RegExp("^["+spl+"]*(.*?)["+spl+"]*inText$");
 		var inqux = inq.replace(reSpace,"$1");
 		var inqu = new RegExp(inqux);
 		divarea = document.getElementById("divarea");
@@ -155,4 +155,145 @@ window.onload = function(){
 	};
 
 	freshout();
+*/
+	var tagsArray = new Array();
+	var hobbyArray = new Array();
+
+	document.onkeyup = function(event){
+		event = event || window.event;
+		//console.log(event.keyCode);
+		if(event.keyCode === 32 || event.keyCode === 13 || event.keyCode === 188){
+			if(document.activeElement.id === "tags"){
+				var tags = document.getElementById("tags");
+				var tagsText = data.trimApart(tags.value);
+				if(tagsText[0]===""){
+					alert("Please input a valid value!");
+				}
+				else{
+					data.repeatLess10(tagsArray,tagsText);
+					var divtags = document.getElementById("divTags");
+					data.present(divtags,tagsArray);
+					console.log("divtags");
+					//data.deleteIt(divtags,tagsArray);
+				}
+				//data.trimApart();
+				tags.value = tags.defaultValue;
+			}
+		}
+	}
+	document.getElementById("hobbyButton").onclick = function(){
+		var newText = document.getElementById("hobby");
+		console.log(newText.value);
+		//data.trimApart();
+		newText.value = newText.defaultValue;
+	}
 }
+
+var data = function(){
+	var time = 0;
+	var _this = this;
+	return{
+		trimApart: function(nArray){
+			var spl = "\\s\\,\\.\\。\\，\\/\\、\\\\";
+			var reSpace=new RegExp("^["+spl+"]*(.*?)["+spl+"]*$");
+			var textem = nArray.replace(reSpace,"$1");
+			var spSpace = new RegExp("["+spl+"]+");
+			var text = textem.split(spSpace);
+			return text;
+		},
+		repeatLess10: function(oArray,nArray){
+			for(var i=0;i<nArray.length;i++){
+				if(oArray.indexOf(nArray[i])<0){
+					if(oArray.length<10){
+						oArray[oArray.length] = nArray[i];
+					}
+					else{
+						for(var j=0;j<oArray.length;j++){
+							oArray[j] = oArray[j+1];
+						}
+						oArray[oArray.length-1] = nArray[i];
+					}
+				}
+			}
+			//return oArray;
+		},
+		present: function(divZone,oArray,deleteNum){
+			console.log(oArray);
+			divZone.innerHTML = "";
+			for(var i=0;i<oArray.length;i++){
+				if(i===deleteNum){
+					tempHTML = "<div class='blockDelete'>删除"+ oArray[i] +"</div>";
+					divZone.innerHTML = divZone.innerHTML + tempHTML;
+				}
+				else{
+					tempHTML = "<div class='blockNormal'>"+ oArray[i] +"</div>";
+					divZone.innerHTML = divZone.innerHTML + tempHTML;
+				}
+			}
+			child = divZone.childNodes;
+			for(var k=0;k<child.length;k++){
+				child[k].k = k;
+				child[k].on = 0;
+				child[k].onmouseover = function(){
+					this.style.cursor = "pointer";
+					console.log(this.k);
+					if(this.on === 0){
+						this.on = 1;
+						_this.present(divZone,oArray,this.k);
+					}
+				}
+				child[k].onmouseout = function(){
+					this.style.cursor = "default";
+					this.on = 0;
+				}
+				child[k].onclick = function(){
+					console.log(child[k]);
+					for(var i=child[k].k;i<oArray.length-1;i++){
+						oArray[i] = oArray[i+1];
+					}
+					oArray.length = oArray.length - 1;
+					_this.present(divZone,oArray);
+				}
+			}
+			//return divZone;
+		},
+		deleteIt: function(divZone,oArray,time){
+			child = divZone.childNodes;
+			console.log(child);
+			for(var k=0;k<child.length;k++){
+				console.log(k);
+				child[k].k = k;
+				child[k].onmouseover = function(){
+					this.style.cursor = "pointer";
+					console.log(this.k);
+					data.present(divZone,oArray,this.k);
+					data.deleteIt(divZone,oArray);
+				}
+				child[k].onmouseout = function(){
+					this.style.cursor = "default";
+				}
+				child[k].onclick = function(){
+					console.log(child[k]);
+					for(var i=child[k].k;i<oArray.length-1;i++){
+						oArray[i] = oArray[i+1];
+					}
+					oArray.length = oArray.length - 1;
+					this.present(divZone,oArray);
+				}
+			}
+			//return divZone;
+		},
+		getByClass: function(zone,classId){
+			node = zone.childNodes;
+			var child = new Array();
+			var count = 0;
+			for(var j=0;j<node.length;j++){
+				if(node[j].className===classId){
+					child[count] = node[j];
+					count = count + 1;
+				}
+			}
+			return child;
+		}
+	}
+}();
