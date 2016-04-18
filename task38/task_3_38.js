@@ -82,9 +82,11 @@ window.onload = function(){
 		}
 		cu.onmouseover = function(){
 			this.style.cursor = "pointer";
+			this.style.borderColor = "transparent transparent #aaaaaa transparent";
 		}
-		cu.onmouseut = function(){
+		cu.onmouseout = function(){
 			this.style.cursor = "default";
+			this.style.borderColor = "transparent transparent #ffffff transparent";
 		}
 		var cd = document.getElementById("chineseDown");
 		cd.onclick = function(){
@@ -92,9 +94,11 @@ window.onload = function(){
 		}
 		cd.onmouseover = function(){
 			this.style.cursor = "pointer";
+			this.style.borderColor = "#aaaaaa transparent transparent transparent";
 		}
-		cd.onmouseut = function(){
+		cd.onmouseout = function(){
 			this.style.cursor = "default";
+			this.style.borderColor = "#ffffff transparent transparent transparent";
 		}
 		// Math
 		var mu = document.getElementById("mathUp");
@@ -103,9 +107,11 @@ window.onload = function(){
 		}
 		mu.onmouseover = function(){
 			this.style.cursor = "pointer";
+			this.style.borderColor = "transparent transparent #aaaaaa transparent";
 		}
-		mu.onmouseut = function(){
+		mu.onmouseout = function(){
 			this.style.cursor = "default";
+			this.style.borderColor = "transparent transparent #ffffff transparent";
 		}
 		var md = document.getElementById("mathDown");
 		md.onclick = function(){
@@ -113,9 +119,11 @@ window.onload = function(){
 		}
 		md.onmouseover = function(){
 			this.style.cursor = "pointer";
+			this.style.borderColor = "#aaaaaa transparent transparent transparent";
 		}
-		md.onmouseut = function(){
+		md.onmouseout = function(){
 			this.style.cursor = "default";
+			this.style.borderColor = "#ffffff transparent transparent transparent";
 		}
 		// English
 		var eu = document.getElementById("englishUp");
@@ -124,9 +132,11 @@ window.onload = function(){
 		}
 		eu.onmouseover = function(){
 			this.style.cursor = "pointer";
+			this.style.borderColor = "transparent transparent #aaaaaa transparent";
 		}
-		eu.onmouseut = function(){
+		eu.onmouseout = function(){
 			this.style.cursor = "default";
+			this.style.borderColor = "transparent transparent #ffffff transparent";
 		}
 		var ed = document.getElementById("englishDown");
 		ed.onclick = function(){
@@ -134,9 +144,11 @@ window.onload = function(){
 		}
 		ed.onmouseover = function(){
 			this.style.cursor = "pointer";
+			this.style.borderColor = "#aaaaaa transparent transparent transparent";
 		}
-		ed.onmouseut = function(){
+		ed.onmouseout = function(){
 			this.style.cursor = "default";
+			this.style.borderColor = "#ffffff transparent transparent transparent";
 		}
 		// Total
 		var tu = document.getElementById("totalUp");
@@ -145,9 +157,11 @@ window.onload = function(){
 		}
 		tu.onmouseover = function(){
 			this.style.cursor = "pointer";
+			this.style.borderColor = "transparent transparent #aaaaaa transparent";
 		}
-		tu.onmouseut = function(){
+		tu.onmouseout = function(){
 			this.style.cursor = "default";
+			this.style.borderColor = "transparent transparent #ffffff transparent";
 		}
 		var td = document.getElementById("totalDown");
 		td.onclick = function(){
@@ -155,9 +169,11 @@ window.onload = function(){
 		}
 		td.onmouseover = function(){
 			this.style.cursor = "pointer";
+			this.style.borderColor = "#aaaaaa transparent transparent transparent";
 		}
-		td.onmouseut = function(){
+		td.onmouseout = function(){
 			this.style.cursor = "default";
+			this.style.borderColor = "#ffffff transparent transparent transparent";
 		}
 	}
 }
