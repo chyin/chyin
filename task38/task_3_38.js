@@ -52,9 +52,9 @@ window.onload = function(){
 				console.log(parseInt(score[i][num]));
 				for(var j=i+1;j<score.length;j++){
 					if(score[i][num]>score[j][num]){
-						var temp = score[i][num];
-						score[i][num] = score[j][num];
-						score[j][num] = temp;
+						var temp = score[i];
+						score[i] = score[j];
+						score[j] = temp;
 					}
 				}
 			}
@@ -63,9 +63,9 @@ window.onload = function(){
 			for(var i=0;i<score.length;i++){
 				for(var j=i+1;j<score.length;j++){
 					if(score[i][num]<score[j][num]){
-						var temp = score[i][num];
-						score[i][num] = score[j][num];
-						score[j][num] = temp;
+						var temp = score[i];
+						score[i] = score[j];
+						score[j] = temp;
 					}
 				}
 			}
