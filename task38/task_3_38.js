@@ -75,105 +75,45 @@ window.onload = function(){
 	}
 	// 添加排序按钮功能
 	function buttonReady(){
-		// Chinese
-		var cu = document.getElementById("chineseUp");
-		cu.onclick = function(){
-			changeOrder(true,1);
-		}
-		cu.onmouseover = function(){
-			this.style.cursor = "pointer";
-			this.style.borderColor = "transparent transparent #aaaaaa transparent";
-		}
-		cu.onmouseout = function(){
-			this.style.cursor = "default";
-			this.style.borderColor = "transparent transparent #ffffff transparent";
-		}
-		var cd = document.getElementById("chineseDown");
-		cd.onclick = function(){
-			changeOrder(false,1);
-		}
-		cd.onmouseover = function(){
-			this.style.cursor = "pointer";
-			this.style.borderColor = "#aaaaaa transparent transparent transparent";
-		}
-		cd.onmouseout = function(){
-			this.style.cursor = "default";
-			this.style.borderColor = "#ffffff transparent transparent transparent";
-		}
-		// Math
-		var mu = document.getElementById("mathUp");
-		mu.onclick = function(){
-			changeOrder(true,2);
-		}
-		mu.onmouseover = function(){
-			this.style.cursor = "pointer";
-			this.style.borderColor = "transparent transparent #aaaaaa transparent";
-		}
-		mu.onmouseout = function(){
-			this.style.cursor = "default";
-			this.style.borderColor = "transparent transparent #ffffff transparent";
-		}
-		var md = document.getElementById("mathDown");
-		md.onclick = function(){
-			changeOrder(false,2);
-		}
-		md.onmouseover = function(){
-			this.style.cursor = "pointer";
-			this.style.borderColor = "#aaaaaa transparent transparent transparent";
-		}
-		md.onmouseout = function(){
-			this.style.cursor = "default";
-			this.style.borderColor = "#ffffff transparent transparent transparent";
-		}
-		// English
-		var eu = document.getElementById("englishUp");
-		eu.onclick = function(){
-			changeOrder(true,3);
-		}
-		eu.onmouseover = function(){
-			this.style.cursor = "pointer";
-			this.style.borderColor = "transparent transparent #aaaaaa transparent";
-		}
-		eu.onmouseout = function(){
-			this.style.cursor = "default";
-			this.style.borderColor = "transparent transparent #ffffff transparent";
-		}
-		var ed = document.getElementById("englishDown");
-		ed.onclick = function(){
-			changeOrder(false,3);
-		}
-		ed.onmouseover = function(){
-			this.style.cursor = "pointer";
-			this.style.borderColor = "#aaaaaa transparent transparent transparent";
-		}
-		ed.onmouseout = function(){
-			this.style.cursor = "default";
-			this.style.borderColor = "#ffffff transparent transparent transparent";
-		}
-		// Total
-		var tu = document.getElementById("totalUp");
-		tu.onclick = function(){
-			changeOrder(true,4);
-		}
-		tu.onmouseover = function(){
-			this.style.cursor = "pointer";
-			this.style.borderColor = "transparent transparent #aaaaaa transparent";
-		}
-		tu.onmouseout = function(){
-			this.style.cursor = "default";
-			this.style.borderColor = "transparent transparent #ffffff transparent";
-		}
-		var td = document.getElementById("totalDown");
-		td.onclick = function(){
-			changeOrder(false,4);
-		}
-		td.onmouseover = function(){
-			this.style.cursor = "pointer";
-			this.style.borderColor = "#aaaaaa transparent transparent transparent";
-		}
-		td.onmouseout = function(){
-			this.style.cursor = "default";
-			this.style.borderColor = "#ffffff transparent transparent transparent";
+		var buttonArray = ["chineseUp","chineseDown","mathUp","mathDown","englishUp","englishDown","totalUp","totalDown"];
+		for(var i=0;i<buttonArray.length;i++){
+			var bArray = buttonArray[i];
+			var barr = [];
+			barr[i] = document.getElementById(bArray);
+			barr[i].upDown = false;
+			barr[i].num = 0;
+			//console.log(bArray.charAt(bArray.length-1));
+			if(bArray.charAt(bArray.length-1)==="p"){
+				barr[i].upDown = true;
+			}
+			//console.log(barr[i].upDown);
+			switch(bArray.charAt(0)){
+				case "c": barr[i].num = 1;break;
+				case "m": barr[i].num = 2;break;
+				case "e": barr[i].num = 3;break;
+				case "t": barr[i].num = 4;break;
+				default: alert("Wrong");
+			}
+			barr[i].onclick = function(){
+				changeOrder(this.upDown,this.num);
+			}
+			barr[i].onmouseover = function(){
+				this.style.cursor = "pointer";
+				if(this.upDown){
+					this.style.borderColor = "transparent transparent #aaaaaa transparent";
+				}else{
+					this.style.borderColor = "#aaaaaa transparent transparent transparent";
+				}
+			}
+			barr[i].onmouseout = function(){
+				this.style.cursor = "default";
+				if(this.upDown){
+					this.style.borderColor = "transparent transparent #ffffff transparent";
+				}else{
+					this.style.borderColor = "#ffffff transparent transparent transparent";
+				}
+			}
 		}
 	}
+
 }
