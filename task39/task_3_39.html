@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task39</title>
+	<link rel="stylesheet" href="task_3_39.css">
+	<script language="javascript" type="text/javascript" src="jquery-1.12.2.min.js"></script>
+	<script src="task_3_39.js"></script>
+</head>
+<body>
+	<fieldset id = "divAdd">
+	<legend>添加新数据：</legend>
+		<p>
+			<span>姓名：</span><input type="text" id="name">
+			<span>语文：</span><input type="text" id="chinese">
+			<span>数学：</span><input type="text" id="math">
+			<span>英语：</span><input type="text" id="english">
+		</p>
+		<p>
+			<button id = "confirm">确定</button>
+			<button id = "clear">清除所有数据</button>
+		</p>
+	</fieldset>
+	<table id = "divTable">
+		<tr>
+			<th>姓名</th>
+			<th>语文<span id = "chineseUp" class="up"></span><span id = "chineseDown" class="down"></span></th>
+			<th>数学<span id = "mathUp" class="up"></span><span id = "mathDown" class="down"></span></th>
+			<th>英语<span id = "englishUp" class="up"></span><span id = "englishDown" class="down"></span></th>
+			<th>总分<span id = "totalUp" class="up"></span><span id = "totalDown" class="down"></span></th>
+		</tr>
+	</table>
+	<table id = "fixTable">
+		<tr id = "tableFirst">
+			<th>姓名</th>
+			<th>语文<span id = "chinesefUp" class="up"></span><span id = "chinesefDown" class="down"></span></th>
+			<th>数学<span id = "mathfUp" class="up"></span><span id = "mathfDown" class="down"></span></th>
+			<th>英语<span id = "englishfUp" class="up"></span><span id = "englishfDown" class="down"></span></th>
+			<th>总分<span id = "totalfUp" class="up"></span><span id = "totalfDown" class="down"></span></th>
+		</tr>
+	</table>
+	<div id = "occupy"></div>
+</body>
+</html>
