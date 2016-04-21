@@ -13,7 +13,7 @@ window.onload = function(){
 	var inputMonth = document.getElementById("inputMonth");
 	var inputYear = document.getElementById("inputYear");
 	hidePart.style.display = "none";
-	document.getElementById("dateInput").value = year + "/" + (month<9?"0"+(month+1):month+1) + "/" + (day<9?"0"+day:day);
+	document.getElementById("dateInput").value = year + "-" + (month<9?"0"+(month+1):month+1) + "-" + (day<10?"0"+day:day);
 
 	hideCalendar();
 	function hideCalendar(){
@@ -168,7 +168,7 @@ window.onload = function(){
 			inputMonth.style.display = "none";
 			inputYear.style.display = "none";
 			hidePart.style.display = "none";
-			document.getElementById("dateInput").value = year + "/" + (month<9?"0"+(month+1):month+1) + "/" + (day<9?"0"+day:day);
+			document.getElementById("dateInput").value = year + "-" + (month<9?"0"+(month+1):month+1) + "-" + (day<10?"0"+day:day);
 		}
 		// 左右箭头
 		var thLeft = document.getElementById("thLeft");
@@ -230,7 +230,7 @@ window.onload = function(){
 				day = this.i;
 				//calendar();
 				hidePart.style.display = "none";
-				document.getElementById("dateInput").value = year + "/" + (month<9?"0"+(month+1):month+1) + "/" + (day<9?"0"+day:day);
+				document.getElementById("dateInput").value = year + "-" + (month<9?"0"+(month+1):month+1) + "-" + (day<10?"0"+day:day);
 			}
 			now[i].onmouseover = function(){
 				this.style.cursor = "pointer";

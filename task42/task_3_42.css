@@ -15,6 +15,7 @@
 #hidePart{
 	position: absolute;
 	top: 0;
+	display: none;
 }
 #leadTable{
 	width: 0px;
