@@ -1,0 +1,97 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+#dateFrame{
+	position: relative;
+	margin: 100px 0 0 200px;
+}
+#dateInput{
+	width: 280px;
+	height: 20px;
+	line-height: 20px;
+	padding-left: 10px;
+}
+#hidePart{
+	position: absolute;
+	top: 0;
+}
+#leadTable{
+	width: 0px;
+	height:0px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent #E77408 transparent;
+	position: absolute;
+	top:20px;
+	left: 185px;
+}
+#calTable{
+	width: 280px;
+	text-align: center;
+	border-collapse: collapse;
+	position: absolute;
+	top: 30px;
+	left: 50px;
+}
+.tableTitle{
+	background-color: #E77408;
+	color: #ffffff;
+	height: 25px;
+	line-height: 25px;
+	border: 1px solid #E77408;
+}
+#thLeft{
+	width: 0px;
+	height:0px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent #ffffff transparent transparent;
+	float: right;
+}
+#thRight{
+	width: 0px;
+	height:0px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent transparent #ffffff;
+	float: left;
+}
+#chooseMonth{
+	position: relative;
+}
+#inputMonth{
+	display: none;
+	position: absolute;
+	top: -2px;
+	left: 0;
+	text-align: center;
+}
+#chooseYear{
+	position: relative;
+}
+#inputYear{
+	width: 35px;
+	display: none;
+	position: absolute;
+	top: -2px;
+	left: 0;
+	text-align: center;
+}
+/*
+	Day
+ */
+.last,.now,.next{
+	height: 40px;
+	width: 40px;
+	border: 1px solid #efefef;
+}
+.point:hover{
+	background-color: #E77408;
+}
+.last,.next{
+	color: #cdcdcd;
+}
+.cDay{
+	background-color: #f88419;
+}
