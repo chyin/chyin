@@ -7,8 +7,12 @@
 	<script src="task_3_42.js"></script>
 </head>
 <body>
+	<div id = "chOne">
+		<button id = "chOneDay" class="chButton">选择某日期</button> <button id = "chOnePeriod" class="chButton">选择某段时间</button> 
+		<p id = "timeLength">时间段最短跨度：<input type="text" id = "smallLength">天，最长跨度：<input type="text" id = "largeLength">天。<button id = "lengthConfirm">确定</button></p>
+	</div>
 	<div id = "dateFrame">
-		<div id = "dateText">日期: <input type="text" id = "dateInput"></div>
+		<div id = "dateText">日期: <input type="text" id = "dateInput" readonly="readonly"></div>
 		<div id = "hidePart">
 			<div id = "leadTable"></div>
 			<table id = "calTable">
@@ -37,6 +41,7 @@
 					<td>Sun</td>
 				</tr>
 			</table>
+			<div id = "confirm"><button id = "certain">确定</button> <button id = "cancle">取消</button></div>
 		</div>
 	</div>
 </body>

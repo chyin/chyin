@@ -2,12 +2,22 @@
 	margin: 0;
 	padding: 0;
 }
+#chOne{
+	margin: 50px 0 0 200px;
+}
+.chButton{
+	margin-right: 20px;
+	margin-bottom: 10px;
+}
+#chOne input{
+	width: 20px;
+}
 #dateFrame{
 	position: relative;
-	margin: 100px 0 0 200px;
+	margin: 10px 0 0 200px;
 }
 #dateInput{
-	width: 280px;
+	width: 270px;
 	height: 20px;
 	line-height: 20px;
 	padding-left: 10px;
@@ -16,6 +26,10 @@
 	position: absolute;
 	top: 0;
 	display: none;
+}
+#timeLength{
+	display: none;
+	width: 380px;
 }
 #leadTable{
 	width: 0px;
@@ -95,4 +109,12 @@
 }
 .cDay{
 	background-color: #f88419;
+}
+.pDay{
+	background-color: #cdcdcd;
+}
+#confirm{
+	margin-left: 50px;
+	width: 280px;
+	text-align: center;
 }
