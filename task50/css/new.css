@@ -1,0 +1,19 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.newQuestion{
+	text-align: center;
+}
+button{
+	margin: 175px auto;
+	background-color: #E67312;
+	color: #FFFFFF;
+	height: 60px;
+	border-radius: 5px;
+}
+button span{
+	margin: 0 50px;
+	font-size: 25px;
+	font-weight: bold;
+}

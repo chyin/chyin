@@ -1,0 +1,27 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+table{
+	margin: 30px auto;
+	width: 100%;
+	border-collapse: collapse;
+	font-weight: 80%;
+	height: 30px;
+	line-height: 30px;
+}
+th,td{
+	text-align: center;
+	border:1px solid #ddd;
+	font-weight: 80%;
+}
+th{
+	background: #EFEFEF;
+	position: relative;
+}
+th button{
+	background-color: #E67312;
+	color: #FFFFFF;
+	margin-left: 30px;
+}
