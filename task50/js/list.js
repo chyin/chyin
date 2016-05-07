@@ -1,5 +1,4 @@
 if(questionnaire.length===0){
-	console.log(1111);
 	$("#mbody").load("new.html");
 }
 var list = document.getElementById("list");
@@ -16,7 +15,7 @@ function tableDelete(){
 }
 // 添加内容
 function tableAdd(){
-	console.log(questionnaire[0].state);
+	//console.log(questionnaire[0].state);
 	for(var i=0;i<questionnaire.length;i++){
 		var tempdata = "";
 		tempdata += "<td> <input type='checkbox' name=i/> </td>";
