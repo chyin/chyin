@@ -12,6 +12,12 @@ if (nowQuestion===-1) {
 }
 console.log(nowQ);
 showContent();
+document.getElementById("saveQuestion").onclick = function(){
+	$("#mbody").load("list.html");
+}
+document.getElementById("submitQuestion").onclick = function(){
+	$("#mbody").load("list.html");
+}
 
 function showContent() {
 	document.getElementById("inputTitle").value = nowQ[0].title;
