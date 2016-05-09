@@ -1,5 +1,4 @@
 console.log(nowQuestion);
-nowQuestion = 0;
 if (nowQuestion===-1) {
 	nowQ = qq1;
 }else{
