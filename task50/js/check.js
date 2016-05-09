@@ -1,0 +1,1 @@
+document.getElementById('check').innerHTML = nowQuestion;

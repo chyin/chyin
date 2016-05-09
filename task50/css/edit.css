@@ -1,0 +1,87 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+#editZone{
+	margin: 0 50px;
+	position: relative;
+	padding: 20px;
+}
+#questionZone{
+	border-top: 3px solid #BEBEBE;
+	border-bottom: 3px solid #BEBEBE;
+	padding: 20px;
+}
+.qTitle{
+	margin: 20px;
+	text-align: center;
+}
+.qTitle input{
+	border: none;
+	height: 50px;
+	line-height: 50px;
+	font-size: 30px;
+	text-align: center;
+	width: 100%;
+	padding: 20px 0;
+}
+.qTitle input:hover{
+	background-color: #FDF1E6;
+}
+
+.questionDetail{
+	padding: 20px;
+	position: relative;
+}
+.questionDetail:hover{
+	background-color: #FDF1E6;
+}
+.questionDetail input{
+	border: none;
+}
+.questionDetail input:hover{
+	background-color: #FDF1E6;
+}
+.questionOption{
+	padding-left: 50px;
+}
+.questionButton{
+	position: absolute;
+	right: 20px;
+	bottom: 10px;
+}
+
+.questionChoose{
+	margin: 20px;
+	border: 1px solid #D2D2D2;
+	text-align: center;
+}
+.questionType{
+	display: none;
+}
+.questionType button{
+	margin: 20px;
+	font-size: 20px;
+	height: 50px;
+	padding: 0 10px;
+}
+.questionAdd{
+	padding: 30px;
+	background-color: #EEEEEE;
+	font-size: 30px;
+}
+.questionAdd:hover{
+	background-color: #FDF1E6;
+}
+#timeDiv{
+	padding: 20px 100px;
+}
+#saveButton{
+	position: absolute;
+	right: 200px;
+	bottom: 20px;
+}
+
+.groundColor{
+	background-color: #FDF1E6;
+}
