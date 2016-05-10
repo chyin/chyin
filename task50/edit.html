@@ -15,7 +15,38 @@
 				<div class="questionAdd" id="questionAdd"><span>添加问题</span></div>
 			</div>
 		</div>
-		<div id="timeDiv"><span>问卷截止时间：time</span></div>
+		<div id = "timeDiv">
+			<div id = "dateText">问卷截止时间: <input type="text" id = "dateInput" readonly="readonly"></div>
+			<div id = "hidePart">
+				<div id = "leadTable"></div>
+				<table id = "calTable">
+					<tr class="tableTitle">
+						<th><div id = "thLeft"></div></th>
+						<th colspan="5" id = "chooseDay">
+							<span id = "chooseMonth">
+								<span id = "cMonth"></span>
+								<input type="text" id = "inputMonth">
+							</span>
+							&nbsp
+							<span id = "chooseYear">
+								<span id = "cYear"></span>
+								<input type="text" id = "inputYear">
+							</span>
+						</th>
+						<th><div id = "thRight"></div></th>
+					</tr>
+					<tr class="tableTitle">
+						<td>Mon</td>
+						<td>Tue</td>
+						<td>Wed</td>
+						<td>Thu</td>
+						<td>Fri</td>
+						<td>Sat</td>
+						<td>Sun</td>
+					</tr>
+				</table>
+			</div>
+		</div>
 		<div id="saveButton"><button id="saveQuestion">保存问卷</button>&nbsp&nbsp<button id="submitQuestion">发布问卷</button></div>
 	</div>
 	<script src="js/common.js"></script>
