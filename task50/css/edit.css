@@ -118,15 +118,23 @@ input{
 #timeDiv{
 	position: relative;
 }
+#dataText{
+	font-size: 18px;
+}
 #dateInput{
-	width: 280px;
+	width: 240px;
 	height: 20px;
 	line-height: 20px;
 	padding-left: 10px;
+	border: 1px solid #CED1D2;
+	margin: 10px;
+	padding: 10px 20px;
+	font-size: 18px;
 }
 #hidePart{
 	position: absolute;
-	top: 0;
+	top: 50px;
+	left: 165px;
 	display: none;
 }
 #leadTable{
@@ -197,7 +205,7 @@ input{
 .last,.now,.next{
 	height: 40px;
 	width: 40px;
-	border: 1px solid #efefef;
+	border: 2px solid #efefef;
 }
 .point:hover{
 	background-color: #E77408;

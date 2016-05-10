@@ -35,7 +35,7 @@ window.onload = function(){
 		myQuestion.style.cursor = "pointer";  // hand 亦可
 	}
 	
-	$("#mbody").load("edit.html");
+	$("#mbody").load("check.html");
 	//加载list或new
 	//choose();
 

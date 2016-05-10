@@ -1,9 +1,11 @@
 console.log(nowQuestion);
 if (nowQuestion===-1) {
 	nowQ = qq1;
+	var qTime = new Date();
 }else{
 	if(nowQuestion>=0){
 		nowQ = questionnaire[nowQuestion].question;
+		var qTime = questionnaire[nowQuestion].time;
 	}else{
 		console.log(nowQuestion);
 	}
@@ -121,16 +123,16 @@ function styleContent() {
 				for (var kk = questionI[thisI-1].length - 1; kk >= 0; kk--) {
 					questionI[thisI-1][kk].style.backgroundColor = "#FDF1E6";
 				}
-				var questionUp = getClass("questionUp",questionI[thisI-1][0]);
+				var questionUp = getClass1("questionUp",questionI[thisI-1][0]);
 				if(questionUp[0]){
 					questionUp[0].style.display = "block";
 					newOption(document.getElementById("nOption"+thisI),thisI);
 					//orderLength(document.getElementById("oLength"+thisI),thisI);
 					orderFirst(document.getElementById("oFirst"+thisI),thisI);
 				}
-				var questionDown = getClass("questionDown",questionI[thisI-1][0]);
+				var questionDown = getClass1("questionDown",questionI[thisI-1][0]);
 				questionDown[0].style.display = "block";
-				var questionAnswerDelete = getClass("questionAnswerDelete",questionI[thisI-1][0]);
+				var questionAnswerDelete = getClass1("questionAnswerDelete",questionI[thisI-1][0]);
 				if (questionAnswerDelete[0]) {
 					for (var j = questionAnswerDelete.length - 1; j >= 0; j--) {
 						questionAnswerDelete[j].style.display = "block";
@@ -163,13 +165,13 @@ function styleContent() {
 				for (var kk = questionI[thisI-1].length - 1; kk >= 0; kk--) {
 					questionI[thisI-1][kk].style.backgroundColor = "#FFFFFF";
 				}
-				var questionUp = getClass("questionUp",questionI[thisI-1][0]);
+				var questionUp = getClass1("questionUp",questionI[thisI-1][0]);
 				if(questionUp[0]){
 					questionUp[0].style.display = "none";
 				}
-				var questionDown = getClass("questionDown",questionI[thisI-1][0]);
+				var questionDown = getClass1("questionDown",questionI[thisI-1][0]);
 				questionDown[0].style.display = "none";
-				var questionAnswerDelete = getClass("questionAnswerDelete",questionI[thisI-1][0]);
+				var questionAnswerDelete = getClass1("questionAnswerDelete",questionI[thisI-1][0]);
 				if (questionAnswerDelete[0]) {
 					for (var i = questionAnswerDelete.length - 1; i >= 0; i--) {
 						questionAnswerDelete[i].style.display = "none";
@@ -356,11 +358,11 @@ function saveAll(ss) {
 			qq = nowQuestion;
 		}
 		questionnaire[qq] = {
-			title: nowQ[0].title,
-			time:new Date(),
-			state:ss,
-			question:nowQ,
-			data:[]
+			title   : nowQ[0].title,
+			time    : qTime,
+			state   : ss,
+			question: nowQ,
+			data    : []
 		};
 		return true;
 	}else{
@@ -371,7 +373,7 @@ function saveAll(ss) {
 
 function dataTime(){
 	// 初始设定为今天
-	var today = new Date();
+	var today = qTime;
 	// 年月日
 	var year = today.getFullYear();
 	var month = today.getMonth();
@@ -398,9 +400,13 @@ function dataTime(){
 			}
 			if(hidePart.style.display === "none"){
 				hidePart.style.display = "block";
+				document.getElementById("timeDiv").style.paddingBottom = "350px";
+				document.getElementById("saveButton").style.bottom = "350px";
 				calendar();
 			}else{
 				hidePart.style.display = "none";
+				document.getElementById("timeDiv").style.paddingBottom = "20px";
+				document.getElementById("saveButton").style.bottom = "20px";
 			}
 		}
 	}
@@ -539,6 +545,8 @@ function dataTime(){
 			inputMonth.style.display = "none";
 			inputYear.style.display = "none";
 			hidePart.style.display = "none";
+			document.getElementById("timeDiv").style.paddingBottom = "20px";
+			document.getElementById("saveButton").style.bottom = "20px";
 			document.getElementById("dateInput").value = year + "-" + (month<9?"0"+(month+1):month+1) + "-" + (day<10?"0"+day:day);
 		}
 		// 左右箭头
@@ -601,7 +609,15 @@ function dataTime(){
 				day = this.i;
 				//calendar();
 				hidePart.style.display = "none";
+				document.getElementById("timeDiv").style.paddingBottom = "20px";
+				document.getElementById("saveButton").style.bottom = "20px";
 				document.getElementById("dateInput").value = year + "-" + (month<9?"0"+(month+1):month+1) + "-" + (day<10?"0"+day:day);
+				var tempTime = new Date(year,month,day);
+				if (tempTime<new Date()) {
+					alert("请选择正确的结束时间！");
+				}else{
+					qTime = new Date(year,month,day);
+				}
 			}
 			now[i].onmouseover = function(){
 				this.style.cursor = "pointer";
@@ -627,23 +643,6 @@ function dataTime(){
 				this.style.cursor = "default";
 			}
 		}
-	}
-
-	// getElementByClassName
-	function getClass(clsName,parent){
-		var oParent = parent?document.getElementById(parent):document,
-			eles = [];
-			elements = oParent.getElementsByTagName('*');
-
-		for(var i=0,l=elements.length;i<l;i++){
-			classSplit = elements[i].className.split(new RegExp("\\s"));
-			for(var j=0;j<classSplit.length;j++){
-				if(classSplit[j]===clsName){
-					eles.push(elements[i]);
-				}
-			}
-		}
-		return eles;
 	}
 
 }

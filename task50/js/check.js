@@ -11,11 +11,17 @@ if (nowQuestion===-1) {
 	
 }
 showContent();
-document.getElementById("restartAnswer").onclick = function(){
-	$("#mbody").load("check.html");
-}
-document.getElementById("submitAnswer").onclick = function(){
-	$("#mbody").load("list.html");
+if (questionnaire[nowQuestion].state===1 && questionnaire[nowQuestion].time>=new Date()) {
+	document.getElementById("restartAnswer").onclick = function(){
+		$("#mbody").load("check.html");
+	}
+	document.getElementById("submitAnswer").onclick = function(){
+		$("#mbody").load("list.html");
+	}
+}else{
+	document.getElementById("back").onclick = function(){
+		$("#mbody").load("list.html");
+	}
 }
 
 function showContent() {
@@ -30,12 +36,12 @@ function showContent() {
 			temphtml = "<div class='questionDetail'><div>Q"+ i +"&nbsp&nbsp&nbsp&nbsp "+ nowQ[i].title +"</div>";
 			if(nowQ[i].type === "one"){
 				for(var j in nowQ[i].content){
-					temphtml += "<div class='questionOption'><input type='radio' name='"+ i +"'/>"+ nowQ[i].content[j] +"</div>";
+					temphtml += "<div class='questionOption'><input type='radio' name='"+ i +"'/>&nbsp&nbsp"+ nowQ[i].content[j] +"</div>";
 				}
 			}else{
 				if(nowQ[i].type === "more"){
 					for(var j in nowQ[i].content){
-						temphtml += "<div class='questionOption'><input type='checkbox' name='"+ i +"'/>"+ nowQ[i].content[j] +"</div>";
+						temphtml += "<div class='questionOption'><input type='checkbox' name='"+ i +"'/>&nbsp&nbsp"+ nowQ[i].content[j] +"</div>";
 					}
 				}else{
 					if(nowQ[i].type === "abc"){
@@ -47,6 +53,11 @@ function showContent() {
 			}
 			temphtml += "</div>";
 			questionArea.innerHTML += temphtml;
+		}
+		if (questionnaire[nowQuestion].state===1 && questionnaire[nowQuestion].time>=new Date()) {
+			document.getElementById("saveButton").innerHTML = "<button id='restartAnswer'>重置</button>&nbsp&nbsp<button id='submitAnswer'>提交问卷</button>";
+		}else{
+			document.getElementById("saveButton").innerHTML = "<button id='back'>返回</button>";
 		}
 	}
 }

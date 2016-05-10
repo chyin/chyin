@@ -32,15 +32,12 @@
 }
 .questionOption{
 	padding-left: 50px;
+	margin: 10px;
 }
 
-#timeDiv{
-	padding: 20px 100px;
-}
 #saveButton{
-	position: absolute;
-	right: 200px;
-	bottom: 20px;
+	text-align: center;
+	padding: 50px;
 }
 
 .groundColor{

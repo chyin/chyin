@@ -31,7 +31,7 @@ function tableAdd(){
 		tempdata += "<tr class='trShow'><td> <input type='checkbox' name=" + i + " id='ch" + i + "''> </td>";
 		tempdata += "<td>" + questionnaire[i].title + "</td>";
 		var iTime = getTimeDetail(questionnaire[i].time);
-		tempdata += "<td>" + iTime.year + "-" + iTime.month + "-" + iTime.day + "</td>";
+		tempdata += "<td>" + iTime.year + "-" + (iTime.month<10?"0"+(iTime.month):iTime.month) + "-" + (iTime.day<10?"0"+iTime.day:iTime.day) + "</td>";
 		if(questionnaire[i].state===0){
 			tempdata += "<td class='underPress'> 未发布 </td>";
 			tempdata += "<td> <button id='edit"+i+"'>编辑</button> <button id='delete"+i+"'>删除</button> <button id='check"+i+"'>查看问卷</button> </td>";

@@ -50,3 +50,10 @@ function showContent() {
 		}
 	}
 }
+
+
+// 生成数据
+
+// 画图
+
+// 按钮
