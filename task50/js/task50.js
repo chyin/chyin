@@ -1,11 +1,11 @@
 var questionnaire = new Array();
 var nowQuestion;
-nowQuestion = -1;
+nowQuestion = 0;
 
 qq1 = [{title:"请添加标题"}]
-q1 = [{title:"调查问卷1"},{type:"one",title:"单选题",content:{a1:"选项一",a2:"选项二"}},{type:"more",title:"多选题",content:{a1:"选项一",a2:"选项二",a3:"选项二"}},{type:"abc",title:"文本题",content:{}}];
-q2 = [{title:"调查问卷2"},{type:"one",title:"单选题",content:{a1:"选项一",a2:"选项二"}},{type:"more",title:"多选题",content:{a1:"选项一",a2:"选项二",a3:"选项二"}},{type:"abc",title:"文本题",content:{}}];
-q3 = [{title:"调查问卷3"},{type:"one",title:"单选题",content:{a1:"选项一",a2:"选项二"}},{type:"more",title:"多选题",content:{a1:"选项一",a2:"选项二",a3:"选项二"}},{type:"abc",title:"文本题",content:{}}];
+q1 = [{title:"调查问卷1"},{type:"one",title:"单选题",content:["选项一","选项二"]},{type:"more",title:"多选题",content:["选项一","选项二","选项三"]},{type:"abc",title:"文本题",required:false,content:[]},{type:"one",title:"单选题",content:["选项一","选项二"]},{type:"more",title:"多选题",content:["选项一","选项二","选项三"]},{type:"abc",title:"文本题",required:true,content:[]}];
+q2 = [{title:"调查问卷2"},{type:"one",title:"单选题",content:["选项一","选项二"]},{type:"more",title:"多选题",content:["选项一","选项二","选项三"]},{type:"abc",title:"文本题",content:[]}];
+q3 = [{title:"调查问卷3"},{type:"one",title:"单选题",content:["选项一","选项二"]},{type:"more",title:"多选题",content:["选项一","选项二","选项三"]},{type:"abc",title:"文本题",content:[]}];
 d1 = [21];
 d2 = null;
 d3 = [4321];
@@ -35,9 +35,9 @@ window.onload = function(){
 		myQuestion.style.cursor = "pointer";  // hand 亦可
 	}
 	
-	// $("#mbody").load("list.html");
+	$("#mbody").load("edit.html");
 	//加载list或new
-	choose();
+	//choose();
 
 	function choose(){
 		if(questionnaire.length === 0){

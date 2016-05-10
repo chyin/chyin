@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<title>edit</title>
 	<link rel="stylesheet" href="css/edit.css">
-	<script src="js/edit.js"></script>
 </head>
 <body>
 	<div id="editZone">	
@@ -13,11 +12,13 @@
 			<div class="question" id="question"></div>
 			<div class="questionChoose">
 				<div class="questionType" id="questionType"><button id="oneChoose">单选</button><button id="moreChoose">多选</button><button id="textWrite">文本题</button></div>
-				<div class="questionAdd"><span>添加问题</span></div>
+				<div class="questionAdd" id="questionAdd"><span>添加问题</span></div>
 			</div>
 		</div>
 		<div id="timeDiv"><span>问卷截止时间：time</span></div>
 		<div id="saveButton"><button id="saveQuestion">保存问卷</button>&nbsp&nbsp<button id="submitQuestion">发布问卷</button></div>
 	</div>
+	<script src="js/common.js"></script>
+	<script src="js/edit.js"></script>
 </body>
 </html>

@@ -12,12 +12,14 @@
 	border-bottom: 3px solid #BEBEBE;
 	padding: 20px;
 }
+input{
+	border: none;
+}
 .qTitle{
 	margin: 20px;
 	text-align: center;
 }
 .qTitle input{
-	border: none;
 	height: 50px;
 	line-height: 50px;
 	font-size: 30px;
@@ -29,26 +31,51 @@
 	background-color: #FDF1E6;
 }
 
+.inputLength{
+	width: 60%;
+}
 .questionDetail{
 	padding: 20px;
 	position: relative;
 }
-.questionDetail:hover{
-	background-color: #FDF1E6;
-}
 .questionDetail input{
-	border: none;
+	font-size: 15px;
 }
-.questionDetail input:hover{
-	background-color: #FDF1E6;
+.questionTitle input{
+	font-weight: bold;
 }
 .questionOption{
 	padding-left: 50px;
+	margin: 10px;
+	position: relative;
 }
-.questionButton{
+.questionAnswerDelete{
+	position: absolute;
+	left: 10px;
+	top: 0;
+	font-size: 18px;
+	display: none;
+}
+.questionAnswerDelete:hover{
+	color: #E67312;
+	cursor: pointer;
+}
+.questionUp{
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	display: none;
+}
+.questionDown{
 	position: absolute;
 	right: 20px;
 	bottom: 10px;
+	display: none;
+}
+.questionUpRe{
+	position: absolute;
+	right: 20px;
+	top: 10px;
 }
 
 .questionChoose{
