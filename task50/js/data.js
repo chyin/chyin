@@ -17,9 +17,8 @@ document.getElementById("returnButton").onclick = function(){
 
 // 产生随机数据
 function getDate() {
-	nowD[0] = nowQ[0];
+	nowD = clone(nowQ);
 	for (var i = nowQ.length - 1; i > 0; i--) {
-		nowD[i] = nowQ[i];
 		nowD[i].answer = [];
 		switch(nowD[i].type){
 			case "one"  : 
@@ -36,7 +35,11 @@ function getDate() {
 				}
 				break;
 			case "abc"  :
-				nowD[i].answer[0] = Math.floor(Math.random()*100);
+				if (nowD[i].required) {
+					nowD[i].answer[0] = 100;
+				}else{
+					nowD[i].answer[0] = Math.floor(Math.random()*100);
+				}
 				break;
 			default : console.log(nowD[i].type);
 		}
@@ -54,23 +57,23 @@ function showContent() {
 			var temphtml;
 			temphtml = "<div class='questionDetail'><div><span>Q"+ i +"</span><span class='spaceBoth'>"+ nowQ[i].title +"</span></div>";
 			if(nowQ[i].type === "one"){
-				temphtml += "<div id='questionDetail"+ i +"'><table id='chartData"+ i +"' class='chartData'>";
+				temphtml += "<div id='questionDetail"+ i +"'><table id='chartData"+ i +"' class='chartData' width='300px'>";
 				for (var j = 0 ; j < nowD[i].content.length ; j++) {
 					temphtml += "<tr style='color:"+ color[j%color.length] +"'><td class='answerNum' width='10px'>A"+ j +"</td><td>"+ nowD[i].content[j] +"</td><td>"+ nowD[i].answer[j] +"</td></tr>";
 				}
-				temphtml += "</table>	<canvas id='chart"+ i +"' width='600' height='500' class='chart'></canvas></div>"
+				temphtml += "</table>	<canvas id='chart"+ i +"' width='600px' height='500px' class='chart'></canvas></div>"
 	
 			}else{
 				if(nowQ[i].type === "more"){
-					temphtml += "<div id='questionDetail"+ i +"'><table id='chartData"+ i +"' class='chartData'>";
+					temphtml += "<div id='questionDetail"+ i +"'><table id='chartData"+ i +"' class='chartData' width='100%'>";
 					for (var j = 0 ; j < nowD[i].content.length ; j++) {
-						temphtml += "<tr style='color:"+ color[j%color.length] +"'><td class='answerNum' width='10px'>A"+ j +"</td><td>"+ nowD[i].content[j] +"</td><td>"+ nowD[i].answer[j] +"</td></tr>";
+						temphtml += "<tr style='color:"+ color[j%color.length] +"'><td class='answerNum' width='10px'>A"+ j +"</td><td width='200px'>"+ nowD[i].content[j] +"</td><td width='60px'>"+ nowD[i].answer[j] +"</td><td><div class='chartBgSpan' width='100%'><div class='chartBgSpan' id='mq"+i+"a"+j+"'></div></div></td></tr>";
 					}
 					temphtml += "</table></div>"
 				}else{
 					if(nowQ[i].type === "abc"){
-						temphtml += "<div id='questionDetail"+ i +"'><table id='chartData"+ i +"' class='chartData'>";
-						temphtml += "<tr style='color:"+ color[j%color.length] +"'><td class='answerNum' width='150px'>本题有效回答为</td><td>"+ nowD[i].answer[0] +"</td></tr>";
+						temphtml += "<div id='questionDetail"+ i +"'><table id='chartData"+ i +"' class='chartData' width='100%'>";
+						temphtml += "<tr style='color:#ed5713'><td class='answerNum' width='150px'>本题有效回答为</td><td width='145px'>"+ nowD[i].answer[0] +"</td><td><div class='chartBgSpan' width='100%'><div class='chartBgSpan' id='aq"+i+"'></div></div></td></tr>";
 						temphtml += "</table></div>"
 					}else{
 						console.log(nowQ[i].type);
@@ -90,13 +93,35 @@ function showChart() {
 			pieChart(i);
 			document.getElementById("questionDetail"+i).style.height = "500px";//document.getElementById("chart"+i).style.offsetHeight;
 			document.getElementById("questionDetail"+i).style.position = "relative";
+		}else{
+			if (nowD[i].type==="more") {
+				var moreTotal = 0;
+				for (var j = nowD[i].answer.length - 1; j >= 0; j--) {
+					moreTotal += nowD[i].answer[j];
+				}
+				for (var j = nowD[i].answer.length - 1; j >= 0; j--) {
+					var mqaj = document.getElementById('mq'+i+'a'+j);
+					mqaj.style.width = (nowD[i].answer[j]/moreTotal*100)+'%';
+					mqaj.style.backgroundColor = color[j%color.length];
+					mqaj.style.border = "none";
+					mqaj.style.borderRight = "2px solid #333";
+				}
+			}else{
+				if (nowD[i].type==="abc") {
+					var aqi = document.getElementById('aq'+i);
+					aqi.style.width = nowD[i].answer[0]+'%';
+					aqi.style.backgroundColor = "#ed5713";
+					aqi.style.border = "none";
+					aqi.style.borderRight = "2px solid #333";
+				}else{
+					console.log(nowD[i].type);
+				}
+			}
 		}
 	}
 }
 
 
-// 画图
 
 // 按钮
 
-// 题目和选项的空格

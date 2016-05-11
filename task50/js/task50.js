@@ -5,11 +5,12 @@ nowQuestion = 0;
 qq1 = [{title:"请添加标题"}]
 q1 = [{title:"调查问卷1"},{type:"one",title:"单选题",content:["选项一","选项二"]},{type:"more",title:"多选题",content:["选项一","选项二","选项三"]},{type:"abc",title:"文本题",required:false,content:[]},{type:"one",title:"单选题",content:["选项一","选项二"]},{type:"more",title:"多选题",content:["选项一","选项二","选项三"]},{type:"abc",title:"文本题",required:true,content:[]}];
 q2 = [{title:"调查问卷2"},{type:"one",title:"单选题",content:["选项一","选项二"]},{type:"more",title:"多选题",content:["选项一","选项二","选项三"]},{type:"abc",title:"文本题",content:[]}];
-q3 = [{title:"调查问卷3"},{type:"one",title:"单选题",content:["选项一","选项二"]},{type:"more",title:"多选题",content:["选项一","选项二","选项三"]},{type:"abc",title:"文本题",content:[]}];
+q3 = [{title:"调查问卷3"},{type:"one",title:"单选题",content:["选项一","选项二"]},{type:"more",title:"多选题",content:["选项一","选项二","选项三"]},{type:"abc",title:"文本题",content:[],required:true}];
 
-d1 = [[{type:"one",answer:[0]},{type:"more",answer:[0,2]},{type:"abc",answer:["xty"]},{type:"one",answer:[0]},{type:"more",answer:[0,2]},{type:"abc",answer:["xty"]}],[{type:"one",answer:[0]},{type:"more",answer:[0,2]},{type:"abc",answer:["xty"]},{type:"one",answer:[0]},{type:"more",answer:[0,2]},{type:"abc",answer:["xty"]}]];
+a1 = [[{type:"one",answer:[0]},{type:"more",answer:[0,2]},{type:"abc",answer:["xty"]},{type:"one",answer:[0]},{type:"more",answer:[0,2]},{type:"abc",answer:["xty"]}],[{type:"one",answer:[0]},{type:"more",answer:[0,2]},{type:"abc",answer:["xty"]},{type:"one",answer:[0]},{type:"more",answer:[0,2]},{type:"abc",answer:["xty"]}]];
+d1 = null;
 d2 = null;
-d3 = [4321];
+d3 = [];
 questionnaire = [
 	{title:"我的问卷1",time:new Date(2015,8,8),state:1,question:q1,data:d1},
 	{title:"我的问卷2",time:new Date(2016,5,8),state:0,question:q2,data:d2},

@@ -68,7 +68,6 @@ background: #ebedf2 url("../democode/2161/images/gradient.png") repeat-x 0 0;*/
 }
 
 .chartData {
-	width: 300px;
 	margin: 0 40px 0 0;
 	border-collapse: collapse;
 	/*
@@ -92,4 +91,12 @@ background: #ebedf2 url("../democode/2161/images/gradient.png") repeat-x 0 0;*/
 }
 .chartData tr:hover td {
 	background: #f0f0f0;
+}
+.chartBgSpan{
+	height: 15px;
+	border: 2px solid #333;
+	box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
+	background-position: 0 -100px;
 }
