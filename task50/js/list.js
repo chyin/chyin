@@ -129,7 +129,7 @@ function buttonReady() {
 		if(questionnaire[i].state === 0){
 			document.getElementById('edit'+i).onclick = function() {
 				nowQuestion = parseInt(this.id.charAt(this.id.length-1));
-				console.log(nowQuestion);
+				//console.log(nowQuestion);
 				$("#mbody").load("edit.html");
 			}
 			document.getElementById('delete'+i).onclick = function() {

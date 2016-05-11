@@ -32,6 +32,7 @@
 }
 .questionOption{
 	padding-left: 50px;
+	margin: 10px;
 }
 
 #backButton{
@@ -41,4 +42,54 @@
 
 .groundColor{
 	background-color: #FDF1E6;
+}
+
+.spaceBoth{
+	padding: 0 10px;
+}
+.answerNum{
+	color: #000000;
+}
+
+
+.chart, .chartData {
+	border: none;
+/*border: 1px solid #333;
+background: #ebedf2 url("../democode/2161/images/gradient.png") repeat-x 0 0;*/
+}
+
+.chart {
+	display: block;
+	margin: 0 0 50px 0;
+	cursor: pointer;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.chartData {
+	width: 300px;
+	margin: 0 40px 0 0;
+	border-collapse: collapse;
+	/*
+	box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+	background-position: 0 -100px;*/
+}
+
+.chartData th, .chartData td {
+	padding: 0.5em;
+	/*
+	border: 1px dotted #666;*/
+	text-align: left;
+}
+.chartData td {
+	cursor: pointer;
+}
+.chartData td.highlight {
+	background: #e8e8e8;
+}
+.chartData tr:hover td {
+	background: #f0f0f0;
 }

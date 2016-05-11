@@ -77,6 +77,9 @@ input{
 	right: 20px;
 	top: 10px;
 }
+.spaceBoth{
+	padding: 0 10px;
+}
 
 .questionChoose{
 	margin: 20px;

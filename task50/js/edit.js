@@ -1,4 +1,4 @@
-console.log(nowQuestion);
+//console.log(nowQuestion);
 if (nowQuestion===-1) {
 	nowQ = qq1;
 	var qTime = new Date();
@@ -26,6 +26,7 @@ document.getElementById("submitQuestion").onclick = function(){
 	}
 }
 
+// 加载内容
 function showContent() {
 	//console.log(nowQ);
 	document.getElementById("questionType").style.display = "none";
@@ -38,28 +39,28 @@ function showContent() {
 		questionArea.style.display = "block";
 		for (var i = 1; i < nowQ.length; i++) {
 			var temphtml;
-			temphtml = "<div class='questionDetail question"+ i +"'><div class='questionTitle'>Q"+ i +"&nbsp&nbsp <input type='text' id='q"+ i +"' class='question"+ i +"' value='"+ nowQ[i].title +"'/></div>";
+			temphtml = "<div class='questionDetail question"+ i +"'><div class='questionTitle'>Q"+ i +"<input type='text' id='q"+ i +"' class='spaceBoth question"+ i +"' value='"+ nowQ[i].title +"'/></div>";
 			if(nowQ[i].type === "one"){
 				for(var j=0; j<nowQ[i].content.length; j++){
-					temphtml += "<div class='questionOption'><span class='questionAnswerDelete' id='deleteq"+i+"a"+j+"'>×</span><input type='radio' name='"+ i +"'/>&nbsp&nbsp<input type='text' id='q"+ i +"a"+ j +"' class='inputLength question"+ i +"' value='"+ nowQ[i].content[j] +"'/></div>";
+					temphtml += "<div class='questionOption'><span class='questionAnswerDelete' id='deleteq"+i+"a"+j+"'>×</span><input type='radio' name='"+ i +"'/><input type='text' id='q"+ i +"a"+ j +"' class='inputLength spaceBoth question"+ i +"' value='"+ nowQ[i].content[j] +"'/></div>";
 				}
-				temphtml += "<div class='questionUp'><span id='nOption"+ i +"'>新增选项&nbsp&nbsp</span><span id='oFirst"+ i +"'>首字排序&nbsp&nbsp</span></div>";
+				temphtml += "<div class='questionUp'><span id='nOption"+ i +"' class='spaceBoth'>新增选项</span><span id='oFirst"+ i +"' class='spaceBoth'>首字排序</span></div>";
 			}else{
 				if(nowQ[i].type === "more"){
 					for(var j=0; j<nowQ[i].content.length; j++){
-						temphtml += "<div class='questionOption'><span class='questionAnswerDelete' id='deleteq"+i+"a"+j+"'>×</span><input type='checkbox' name='"+ i +"'/>&nbsp&nbsp<input type='text' id='q"+ i +"a"+ j +"' class='inputLength question"+ i +"' value='"+ nowQ[i].content[j] +"'/></div>";
+						temphtml += "<div class='questionOption'><span class='questionAnswerDelete' id='deleteq"+i+"a"+j+"'>×</span><input type='checkbox' name='"+ i +"'/><input type='text' id='q"+ i +"a"+ j +"' class='inputLength spaceBoth question"+ i +"' value='"+ nowQ[i].content[j] +"'/></div>";
 					}
-					temphtml += "<div class='questionUp'><span id='nOption"+ i +"'>新增选项&nbsp&nbsp</span><span id='oFirst"+ i +"'>首字排序&nbsp&nbsp</span></div>";
+					temphtml += "<div class='questionUp'><span id='nOption"+ i +"' class='spaceBoth'>新增选项</span><span id='oFirst"+ i +"' class='spaceBoth'>首字排序</span></div>";
 				}else{
 					if(nowQ[i].type === "abc"){
-						temphtml += "<div class='questionOption'><textarea  id='q"+ i +"a' cols='100' rows='5'></textarea></div>";
-						temphtml += "<div class='questionUpRe'><span><input type='checkbox' checked="+ nowQ[i].required +" name='required"+ i +"' id='required"+ i +"'/>&nbsp&nbsp此题是否必填</span></div>";
+						temphtml += "<div class='questionOption'><textarea  id='q"+ i +"a' cols='80' rows='5'></textarea></div>";
+						temphtml += "<div class='questionUpRe'><span><input type='checkbox' checked="+ nowQ[i].required +" name='required"+ i +"' id='required"+ i +"' class='spaceBoth'/>此题是否必填</span></div>";
 					}else{
 						console.log(nowQ[i].type);
 					}
 				}
 			}
-			temphtml += "<div class='questionDown'><span id='up"+ i +"'>上移&nbsp&nbsp</span><span id='down"+ i +"'>下移&nbsp&nbsp</span><span id='copy"+ i +"'>复用&nbsp&nbsp</span><span id='delete"+ i +"'>删除&nbsp&nbsp</span></div>"
+			temphtml += "<div class='questionDown'><span id='up"+ i +"' class='spaceBoth'>上移</span><span id='down"+ i +"' class='spaceBoth'>下移</span><span id='copy"+ i +"' class='spaceBoth'>复用</span><span id='delete"+ i +"' class='spaceBoth'>删除</span></div>"
 			temphtml += "</div>";
 			questionArea.innerHTML += temphtml;
 		}
@@ -227,8 +228,12 @@ function moveDown(obj,down) {
 function copyIt(obj,it) {
 	obj.onclick = function(){
 		if(nowQ.length<=10){
-			for (var i = nowQ.length-1; i >= it; i--) {
-				nowQ[i+1] = nowQ[i];
+			//nowQ.length += 1;
+			//nowQ[nowQ.length] = {};
+			for (var i = nowQ.length; i > it; i--) {
+				nowQ[i] = clone(nowQ[i-1]);
+				//$.extend(nowQ[i],nowQ[i-1]);
+				//nowQ[i+1] = nowQ[i];
 			}
 		}else{
 			alert("问卷的题目总数应不超过10！");
@@ -261,9 +266,6 @@ function newOption(obj,option) {
 function orderFirst(obj,oFirst) {
 	obj.onclick = function(){
 		var tempOption = nowQ[oFirst].content;
-		console.log(tempOption);
-		console.log(nowQ[oFirst].content);
-		console.log(nowQ[oFirst+1].content);
 		if(tempOption.length>1){
 			nowQ[oFirst].content = changeOrderFirst(tempOption[0]<tempOption[1],tempOption);
 			showContent();
@@ -645,4 +647,37 @@ function dataTime(){
 		}
 	}
 
+}
+
+function clone(obj) {
+    // Handle the 3 simple types, and null or undefined
+    if (null == obj || "object" != typeof obj) return obj;
+
+    // Handle Date
+    if (obj instanceof Date) {
+        var copy = new Date();
+        copy.setTime(obj.getTime());
+        return copy;
+    }
+
+    // Handle Array
+    if (obj instanceof Array) {
+        var copy = [];
+        var len = obj.length;
+        for (var i = 0; i < len; ++i) {
+            copy[i] = clone(obj[i]);
+        }
+        return copy;
+    }
+
+    // Handle Object
+    if (obj instanceof Object) {
+        var copy = {};
+        for (var attr in obj) {
+            if (obj.hasOwnProperty(attr)) copy[attr] = clone(obj[attr]);
+        }
+        return copy;
+    }
+
+    throw new Error("Unable to copy obj! Its type isn't supported.");
 }
