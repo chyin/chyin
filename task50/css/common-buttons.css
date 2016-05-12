@@ -42,16 +42,16 @@
 .button:focus,
 .button:active,
 .button.active {
-    border-color: #3072b3;
-    border-bottom-color: #2a65a0;
+    border-color: #da7c0c;
+    border-bottom-color: #da7c0c;
     text-decoration: none;
     text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
-    color: #fff;
-    background-color: #3c8dde;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#599bdc), to(#3072b3));
-    background-image: -moz-linear-gradient(#599bdc, #3072b3);
-    background-image: -o-linear-gradient(#599bdc, #3072b3);
-    background-image: linear-gradient(#599bdc, #3072b3);
+    color: #fef4e9;
+    background-color: #f78d1d;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#faa51a), to(#f47a20));
+    background-image: -moz-linear-gradient(#faa51a, #f47a20);
+    background-image: -o-linear-gradient(#faa51a, #f47a20);
+    background-image: linear-gradient(#faa51a, #f47a20);
 }
 /*
 .button:active,

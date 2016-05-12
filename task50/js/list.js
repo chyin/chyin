@@ -47,7 +47,7 @@ function tableAdd(){
 
 		list.innerHTML += tempdata + "</tr>";
 	}
-	tempdata = "<tr><td><input type='checkbox' name='all' id='all'/></td> <td colspan='4'>  <span class='deleteAll'>全选 <button id='deleteAllButton'>删除</button></span> </td></tr>";
+	tempdata = "<tr><td><input type='checkbox' name='all' id='all'/></td> <td colspan='4'>  <span class='deleteAll'>全选 <button id='deleteAllButton' class='button'>删除</button></span> </td></tr>";
 	list.innerHTML += tempdata;
 	tableShow();
 	buttonReady();

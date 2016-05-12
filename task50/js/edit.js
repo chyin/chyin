@@ -549,7 +549,7 @@ function dataTime(){
 			hidePart.style.display = "none";
 			document.getElementById("timeDiv").style.paddingBottom = "20px";
 			document.getElementById("saveButton").style.bottom = "20px";
-			document.getElementById("dateInput").value = year + "-" + (month<9?"0"+(month+1):month+1) + "-" + (day<10?"0"+day:day);
+			// document.getElementById("dateInput").value = year + "-" + (month<9?"0"+(month+1):month+1) + "-" + (day<10?"0"+day:day);
 		}
 		// 左右箭头
 		var thLeft = document.getElementById("thLeft");
@@ -613,12 +613,12 @@ function dataTime(){
 				hidePart.style.display = "none";
 				document.getElementById("timeDiv").style.paddingBottom = "20px";
 				document.getElementById("saveButton").style.bottom = "20px";
-				document.getElementById("dateInput").value = year + "-" + (month<9?"0"+(month+1):month+1) + "-" + (day<10?"0"+day:day);
 				var tempTime = new Date(year,month,day);
 				if (tempTime<new Date()) {
 					alert("请选择正确的结束时间！");
 				}else{
 					qTime = new Date(year,month,day);
+					document.getElementById("dateInput").value = year + "-" + (month<9?"0"+(month+1):month+1) + "-" + (day<10?"0"+day:day);
 				}
 			}
 			now[i].onmouseover = function(){
