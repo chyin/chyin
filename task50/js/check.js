@@ -11,16 +11,11 @@ for (var i = nowA.length - 1; i > 0; i--) {
 	nowA[i].answer = new Array(nowA[i].content.length);
 }
 showContent();
-console.log(1);
 if (questionnaire[nowQuestion].state===1 && questionnaire[nowQuestion].time>=new Date()) {
-console.log(2);
 	document.getElementById("restartAnswer").onclick = function(){
-console.log(3);
 		$("#mbody").load("check.html");
 	}
 	document.getElementById("submitAnswer").onclick = function(){
-console.log(4);
-		console.log(checkAll());
 		if (checkAll()) {
 			$("#mbody").load("list.html");
 		}else{
@@ -65,9 +60,9 @@ function showContent() {
 			questionArea.innerHTML += temphtml;
 		}
 		if (questionnaire[nowQuestion].state===1 && questionnaire[nowQuestion].time>=new Date()) {
-			document.getElementById("saveButton").innerHTML = "<button id='restartAnswer' class='spaceBoth'>重置</button><button id='submitAnswer' class='spaceBoth'>提交问卷</button>";
+			document.getElementById("saveButton").innerHTML = "<span class='spaceBoth'><button id='restartAnswer' class='button big'>重置</button></span><span class='spaceBoth'><button id='submitAnswer' class='button big'>提交问卷</button></span>";
 		}else{
-			document.getElementById("saveButton").innerHTML = "<button id='back'>返回</button>";
+			document.getElementById("saveButton").innerHTML = "<button id='back' class='button big'>返回</button>";
 		}
 	}
 	inputAction();

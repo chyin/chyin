@@ -3,28 +3,33 @@
 	padding: 0;
 }
 
+.bgDiv{
+	width: 70%;
+	position: absolute;
+	height: 62px;
+	background: #EFEFEF;
+}
+.tableDiv{
+	width: 90%;
+	margin: 0 auto;
+}
 table{
 	width: 100%;
 	border-collapse: collapse;
 	font-weight: 80%;
-	height: 30px;
-	line-height: 30px;
 }
-th,td{
+table th,td{
 	text-align: center;
 	border-top:1px solid #ddd;
 	font-weight: 80%;
-	height: 40px;
-	line-height: 40px;
+	height: 60px;
+	line-height: 60px;
 	position: relative;
 }
-th{
-	background: #EFEFEF;
-}
-th button{
+table th button{
 	position: absolute;
 	right: 30px;
-	top: 5px;
+	top: 10px;
 }
 .deleteAll{
 	position: absolute;
@@ -38,7 +43,7 @@ th button{
 #action{
 	float: left;
 }*/
-.orange {
+.orange1 {
     color: #fef4e9;
     border: solid 1px #da7c0c;
     background: #f78d1d;
@@ -46,7 +51,7 @@ th button{
     background: -moz-linear-gradient(top, #faa51a, #f47a20);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
 }
-.button {
+.button1 {
     display: inline-block;
     zoom: 1;
     vertical-align: baseline;
@@ -55,12 +60,12 @@ th button{
     cursor: pointer;
     text-align: center;
     text-decoration: none;
-    font: 14px/100% Arial, Helvetica, sans-serif;
-    padding: .3em 1em .35em;
+    font: 15px/100% Arial, Helvetica, sans-serif;
+    padding: .5em 1.5em .55em;
     text-shadow: 0 1px 1px rgba(0,0,0,.3);
-    -webkit-border-radius: .5em;
-    -moz-border-radius: .5em;
-    border-radius: .5em;
+    -webkit-border-radius: .3em;
+    -moz-border-radius: .3em;
+    border-radius: .3em;
     -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
     box-shadow: 0 1px 2px rgba(0,0,0,.2);

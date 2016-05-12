@@ -17,7 +17,7 @@ dataTime();
 
 document.getElementById("saveQuestion").onclick = function(){
 	if(saveAll(0)){
-		$("#mbody").load("list.html");
+		$("#mbody").load("edit.html");
 	}
 }
 document.getElementById("submitQuestion").onclick = function(){

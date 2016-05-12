@@ -34,7 +34,7 @@ function tableAdd(){
 		tempdata += "<td>" + iTime.year + "-" + (iTime.month<10?"0"+(iTime.month):iTime.month) + "-" + (iTime.day<10?"0"+iTime.day:iTime.day) + "</td>";
 		if(questionnaire[i].state===0){
 			tempdata += "<td class='underPress'> 未发布 </td>";
-			tempdata += "<td> <button id='edit"+i+"'>编辑</button> <button id='delete"+i+"'>删除</button> <button id='check"+i+"'>查看问卷</button> </td>";
+			tempdata += "<td> <button id='edit"+i+"' class='button'>编辑</button> <button id='delete"+i+"' class='button'>删除</button> <button id='check"+i+"' class='button'>查看问卷</button> </td>";
 		}else{
 			var now = new Date();
 			if(now-questionnaire[i].time<0){
@@ -42,7 +42,7 @@ function tableAdd(){
 			}else{
 				tempdata += "<td> 已结束 </td>";
 			}
-			tempdata += "<td> <button id='data"+i+"'>查看数据</button> <button id='check"+i+"'>查看问卷</button> </td>";
+			tempdata += "<td> <button id='data"+i+"' class='button'>查看数据</button> <button id='check"+i+"' class='button'>查看问卷</button> </td>";
 		}
 
 		list.innerHTML += tempdata + "</tr>";
