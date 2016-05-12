@@ -50,7 +50,7 @@ function showContent() {
 					}
 				}else{
 					if(nowQ[i].type === "abc"){
-						temphtml += "<div class='questionOption'><textarea id='a"+ i +"' cols='100' rows='5'></textarea></div>";
+						temphtml += "<div class='questionOption'><textarea id='a"+ i +"' rows='5'></textarea></div>";
 					}else{
 						console.log(nowQ[i].type);
 					}
@@ -74,6 +74,7 @@ function inputAction() {
 	var qa = new Array(nowA.length);
 	for (var i = nowA.length - 1; i > 0; i--) {
 		if (nowA[i].type==="abc") {
+			document.getElementById("a"+i).style.width = document.body.offsetWidth * 0.7 * 0.4 + "px";
 			qa[i] = document.getElementById("a"+i);
 			qa[i].i = i;
 			qa[i].onchange = function(){
