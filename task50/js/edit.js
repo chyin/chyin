@@ -53,7 +53,7 @@ function showContent() {
 					temphtml += "<div class='questionUp'><span id='nOption"+ i +"' class='spaceBoth'>新增选项</span><span id='oFirst"+ i +"' class='spaceBoth'>首字排序</span></div>";
 				}else{
 					if(nowQ[i].type === "abc"){
-						temphtml += "<div class='questionOption'><textarea  id='q"+ i +"a' cols='80' rows='5'></textarea></div>";
+						temphtml += "<div class='questionOption'><textarea  id='q"+ i +"a' rows='5'></textarea></div>";
 						temphtml += "<div class='questionUpRe'><span><input type='checkbox' checked="+ nowQ[i].required +" name='required"+ i +"' id='required"+ i +"' class='spaceBoth'/>此题是否必填</span></div>";
 					}else{
 						console.log(nowQ[i].type);
@@ -101,6 +101,7 @@ function inputAction() {
 	var qr = new Array(nowQ.length);
 	for (var i = nowQ.length - 1; i >= 0; i--) {
 		if (nowQ[i].type==="abc") {
+			document.getElementById("q"+i+"a").style.width = document.body.offsetWidth * 0.7 * 0.4 + "px";
 			qr[i] = document.getElementById("required"+i);
 			qr[i].i = i;
 			qr[i].checked = nowQ[i].required;
@@ -201,6 +202,11 @@ function styleContent() {
 		addQuestion("abc");
 	}
 	overOut("textWrite");
+	var saveButton = document.getElementById("saveButton");
+	saveButton.style.position = "absolute";
+	saveButton.style.bottom = "40px";
+	saveButton.style.right = document.body.offsetWidth * 0.7 * 0.1 + "px";
+	console.log(document.body.offsetWidth);
 }
 
 // 右侧按键事件
@@ -402,13 +408,13 @@ function dataTime(){
 			}
 			if(hidePart.style.display === "none"){
 				hidePart.style.display = "block";
-				document.getElementById("timeDiv").style.paddingBottom = "350px";
-				document.getElementById("saveButton").style.bottom = "350px";
+				document.getElementById("timeDiv").style.paddingBottom = "345px";
+				document.getElementById("saveButton").style.bottom = "310px";
 				calendar();
 			}else{
 				hidePart.style.display = "none";
-				document.getElementById("timeDiv").style.paddingBottom = "20px";
-				document.getElementById("saveButton").style.bottom = "20px";
+				document.getElementById("timeDiv").style.paddingBottom = "75px";
+				document.getElementById("saveButton").style.bottom = "40px";
 			}
 		}
 	}
@@ -547,8 +553,8 @@ function dataTime(){
 			inputMonth.style.display = "none";
 			inputYear.style.display = "none";
 			hidePart.style.display = "none";
-			document.getElementById("timeDiv").style.paddingBottom = "20px";
-			document.getElementById("saveButton").style.bottom = "20px";
+			document.getElementById("timeDiv").style.paddingBottom = "75px";
+			document.getElementById("saveButton").style.bottom = "40px";
 			// document.getElementById("dateInput").value = year + "-" + (month<9?"0"+(month+1):month+1) + "-" + (day<10?"0"+day:day);
 		}
 		// 左右箭头
@@ -611,8 +617,8 @@ function dataTime(){
 				day = this.i;
 				//calendar();
 				hidePart.style.display = "none";
-				document.getElementById("timeDiv").style.paddingBottom = "20px";
-				document.getElementById("saveButton").style.bottom = "20px";
+				document.getElementById("timeDiv").style.paddingBottom = "75px";
+				document.getElementById("saveButton").style.bottom = "40px";
 				var tempTime = new Date(year,month,day);
 				if (tempTime<new Date()) {
 					alert("请选择正确的结束时间！");

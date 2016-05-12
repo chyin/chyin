@@ -55,7 +55,7 @@ function showContent() {
 		questionArea.style.display = "block";
 		for (var i = 1; i < nowQ.length; i++) {
 			var temphtml;
-			temphtml = "<div class='questionDetail'><div><span>Q"+ i +"</span><span class='spaceBoth'>"+ nowQ[i].title +"</span></div>";
+			temphtml = "<div class='questionDetail'><div><span>Q"+ i +"</span><span class='spaceBoth'>"+ nowQ[i].title + ((nowQ[i].type==='abc' && nowQ[i].required)?("（此题必填）"):'') +"</span></div>";
 			if(nowQ[i].type === "one"){
 				temphtml += "<div id='questionDetail"+ i +"'><table id='chartData"+ i +"' class='chartData' width='300px'>";
 				for (var j = 0 ; j < nowD[i].content.length ; j++) {

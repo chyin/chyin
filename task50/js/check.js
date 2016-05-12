@@ -38,7 +38,7 @@ function showContent() {
 		questionArea.style.display = "block";
 		for (var i = 1; i < nowQ.length; i++) {
 			var temphtml;
-			temphtml = "<div class='questionDetail'><span>Q"+ i +"</span><span class='spaceBoth'>"+ nowQ[i].title +"</span>";
+			temphtml = "<div class='questionDetail'><span>Q"+ i +"</span><span class='spaceBoth'>"+ nowQ[i].title + ((nowQ[i].type==='abc' && nowQ[i].required)?("（此题必填）"):'') + "</span>";
 			if(nowQ[i].type === "one"){
 				for(var j in nowQ[i].content){
 					temphtml += "<div class='questionOption'><input type='radio' name='"+ i +"' id='q"+ i +"a"+ j +"'/><span class='spaceBoth'>"+ nowQ[i].content[j] +"</span></div>";
