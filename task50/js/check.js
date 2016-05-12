@@ -41,12 +41,12 @@ function showContent() {
 			temphtml = "<div class='questionDetail'><span>Q"+ i +"</span><span class='spaceBoth'>"+ nowQ[i].title + ((nowQ[i].type==='abc' && nowQ[i].required)?("（此题必填）"):'') + "</span>";
 			if(nowQ[i].type === "one"){
 				for(var j in nowQ[i].content){
-					temphtml += "<div class='questionOption'><input type='radio' name='"+ i +"' id='q"+ i +"a"+ j +"'/><span class='spaceBoth'>"+ nowQ[i].content[j] +"</span></div>";
+					temphtml += "<div class='questionOption'><input type='radio' name='"+ i +"' id='q"+ i +"a"+ j +"' class='pointIt'/><span class='spaceBoth'>"+ nowQ[i].content[j] +"</span></div>";
 				}
 			}else{
 				if(nowQ[i].type === "more"){
 					for(var j in nowQ[i].content){
-						temphtml += "<div class='questionOption'><input type='checkbox' name='"+ i +"' id='q"+ i +"a"+ j +"'/><span class='spaceBoth'>"+ nowQ[i].content[j] +"</span></div>";
+						temphtml += "<div class='questionOption'><input type='checkbox' name='"+ i +"' id='q"+ i +"a"+ j +"' class='pointIt'/><span class='spaceBoth'>"+ nowQ[i].content[j] +"</span></div>";
 					}
 				}else{
 					if(nowQ[i].type === "abc"){
@@ -84,24 +84,20 @@ function inputAction() {
 			qa[i] = [];
 			if (nowA[i].type==="more") {
 				for (var j = nowA[i].content.length - 1; j >= 0; j--) {
-					console.log("q"+i+"a"+j);
 					qa[i][j] = document.getElementById("q"+i+"a"+j);
 					qa[i][j].i = i;
 					qa[i][j].j = j;
 					qa[i][j].onchange = function() {
 						nowA[this.i].answer[this.j] = this.checked?1:0;
-						console.log(nowA[this.i].answer[this.j]);
 					}
 				}
 			}else{
 				for (var j = nowA[i].content.length - 1; j >= 0; j--) {
-					console.log("q"+i+"a"+j);
 					qa[i][j] = document.getElementById("q"+i+"a"+j);
 					qa[i][j].i = i;
 					qa[i][j].j = j;
 					qa[i][j].onchange = function() {
 						nowA[this.i].answer = this.j;
-						console.log(nowA[this.i].answer);
 					}
 				}				
 			}
@@ -119,11 +115,9 @@ function checkAll() {
 			if (nowA[i].required) {
 				var tempcontent = nowA[i].content;
 				if (null != tempcontent && "" != tempcontent) {
-				console.log(tempcontent);
 					var spl = "\\s\\,\\.\\。\\，\\/\\、\\\\";
 					var reSpace=new RegExp("^["+spl+"]*(.*?)["+spl+"]*$");
 					var textem = tempcontent.replace(reSpace,"$1");
-				console.log(textem);
 					if (null === textem || "" === textem) {checkEvery -= 1;}
 				}else{
 					checkEvery -= 1;

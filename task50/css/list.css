@@ -29,11 +29,6 @@ table th,td{
 table th{
 	font-size: 1.2em;
 }
-table th button{
-	position: absolute;
-	right: 30px;
-	top: 10px;
-}
 .deleteAll{
 	position: absolute;
 	left: 0;

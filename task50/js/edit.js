@@ -44,23 +44,23 @@ function showContent() {
 				for(var j=0; j<nowQ[i].content.length; j++){
 					temphtml += "<div class='questionOption'><span class='questionAnswerDelete' id='deleteq"+i+"a"+j+"'>×</span><input type='radio' name='"+ i +"'/><input type='text' id='q"+ i +"a"+ j +"' class='inputLength spaceBoth question"+ i +"' value='"+ nowQ[i].content[j] +"'/></div>";
 				}
-				temphtml += "<div class='questionUp'><span id='nOption"+ i +"' class='spaceBoth'>新增选项</span><span id='oFirst"+ i +"' class='spaceBoth'>首字排序</span></div>";
+				temphtml += "<div class='questionUp'><span id='nOption"+ i +"' class='spaceBoth pointIt'>新增选项</span><span id='oFirst"+ i +"' class='spaceBoth pointIt'>首字排序</span></div>";
 			}else{
 				if(nowQ[i].type === "more"){
 					for(var j=0; j<nowQ[i].content.length; j++){
 						temphtml += "<div class='questionOption'><span class='questionAnswerDelete' id='deleteq"+i+"a"+j+"'>×</span><input type='checkbox' name='"+ i +"'/><input type='text' id='q"+ i +"a"+ j +"' class='inputLength spaceBoth question"+ i +"' value='"+ nowQ[i].content[j] +"'/></div>";
 					}
-					temphtml += "<div class='questionUp'><span id='nOption"+ i +"' class='spaceBoth'>新增选项</span><span id='oFirst"+ i +"' class='spaceBoth'>首字排序</span></div>";
+					temphtml += "<div class='questionUp'><span id='nOption"+ i +"' class='spaceBoth pointIt'>新增选项</span><span id='oFirst"+ i +"' class='spaceBoth pointIt'>首字排序</span></div>";
 				}else{
 					if(nowQ[i].type === "abc"){
 						temphtml += "<div class='questionOption'><textarea  id='q"+ i +"a' rows='5'></textarea></div>";
-						temphtml += "<div class='questionUpRe'><span><input type='checkbox' checked="+ nowQ[i].required +" name='required"+ i +"' id='required"+ i +"' class='spaceBoth'/>此题是否必填</span></div>";
+						temphtml += "<div class='questionUpRe'><span><input type='checkbox' checked="+ nowQ[i].required +" name='required"+ i +"' id='required"+ i +"' class='spaceBoth pointIt'/><span class='spaceBoth'>此题是否必填</span></span></div>";
 					}else{
 						console.log(nowQ[i].type);
 					}
 				}
 			}
-			temphtml += "<div class='questionDown'><span id='up"+ i +"' class='spaceBoth'>上移</span><span id='down"+ i +"' class='spaceBoth'>下移</span><span id='copy"+ i +"' class='spaceBoth'>复用</span><span id='delete"+ i +"' class='spaceBoth'>删除</span></div>"
+			temphtml += "<div class='questionDown'><span id='up"+ i +"' class='spaceBoth pointIt'>上移</span><span id='down"+ i +"' class='spaceBoth pointIt'>下移</span><span id='copy"+ i +"' class='spaceBoth pointIt'>复用</span><span id='delete"+ i +"' class='spaceBoth pointIt'>删除</span></div>"
 			temphtml += "</div>";
 			questionArea.innerHTML += temphtml;
 		}
@@ -186,27 +186,22 @@ function styleContent() {
 	questionAdd.onclick = function() {
 		document.getElementById("questionType").style.display = "block";
 	}
-	overOut(questionAdd);
 	var oneChoose = document.getElementById("oneChoose");
 	var moreChoose = document.getElementById("moreChoose");
 	var textWrite = document.getElementById("textWrite");
 	oneChoose.onclick = function() {
 		addQuestion("one");
 	}
-	overOut(oneChoose);
 	moreChoose.onclick = function() {
 		addQuestion("more");
 	}
-	overOut(moreChoose);
 	textWrite.onclick = function() {
 		addQuestion("abc");
 	}
-	overOut("textWrite");
 	var saveButton = document.getElementById("saveButton");
 	saveButton.style.position = "absolute";
 	saveButton.style.bottom = "40px";
 	saveButton.style.right = document.body.offsetWidth * 0.7 * 0.1 + "px";
-	console.log(document.body.offsetWidth);
 }
 
 // 右侧按键事件
@@ -218,7 +213,6 @@ function moveUp(obj,up) {
 		nowQ[up-1] = tempUp;
 		showContent();
 	}
-	overOut(obj);
 }
 // 下移
 function moveDown(obj,down) {
@@ -228,7 +222,6 @@ function moveDown(obj,down) {
 		nowQ[down+1] = tempDown;
 		showContent();
 	}
-	overOut(obj);
 }
 // 复制
 function copyIt(obj,it) {
@@ -246,7 +239,6 @@ function copyIt(obj,it) {
 		}
 		showContent();
 	}
-	overOut(obj);
 }
 // 删除
 function deleteIt(obj,it) {
@@ -257,7 +249,6 @@ function deleteIt(obj,it) {
 		nowQ.length -= 1;
 		showContent();
 	}
-	overOut(obj);
 }
 // 增加选项
 function newOption(obj,option) {
@@ -266,7 +257,6 @@ function newOption(obj,option) {
 		nowQ[option].content[tempLength] = "这是新选项";
 		showContent();
 	}
-	overOut(obj);
 }
 // 根据首字排序
 function orderFirst(obj,oFirst) {
@@ -277,7 +267,6 @@ function orderFirst(obj,oFirst) {
 			showContent();
 		}
 	}
-	overOut(obj);
 }
 function changeOrderFirst(maybe,tempX){
 	for(var i=0;i<tempX.length;i++){
@@ -305,7 +294,6 @@ function orderLength(obj,oLength) {
 			showContent();
 		}
 	}
-	overOut(obj);
 }
 function changeOrderLength(maybe,tempX){
 	console.log(maybe);
@@ -325,15 +313,7 @@ function changeOrderLength(maybe,tempX){
 	return tempX;
 }
 */
-// 鼠标移入移出
-function overOut(obj){
-	obj.onmouseover = function(){
-		this.style.cursor = "pointer";
-	}
-	obj.onmouseout = function(){
-		this.style.cursor = "default";
-	}
-}
+
 // 添加问题
 function addQuestion(qType) {
 	if(nowQ.length<=10){
@@ -531,7 +511,6 @@ function dataTime(){
 		inputYear.onfocus = function(){
 			inputYear.onkeyup = function(event){
 				event = event || window.event;
-					console.log(event.keyCode);
 				if(event.keyCode===13 || event.keyCode===32){
 					year = inputYear.value;
 					inputYear.style.display = "none";

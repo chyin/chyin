@@ -34,7 +34,7 @@ function tableAdd(){
 		tempdata += "<td>" + iTime.year + "-" + (iTime.month<10?"0"+(iTime.month):iTime.month) + "-" + (iTime.day<10?"0"+iTime.day:iTime.day) + "</td>";
 		if(questionnaire[i].state===0){
 			tempdata += "<td class='underPress'> 未发布 </td>";
-			tempdata += "<td> <button id='edit"+i+"' class='button'>编辑</button> <button id='delete"+i+"' class='button'>删除</button> <button id='check"+i+"' class='button'>查看问卷</button> </td>";
+			tempdata += "<td colspan='2'> <button id='edit"+i+"' class='button'>编辑</button> <button id='delete"+i+"' class='button'>删除</button> <button id='check"+i+"' class='button'>查看问卷</button> </td>";
 		}else{
 			var now = new Date();
 			if(now-questionnaire[i].time<0){
@@ -42,12 +42,12 @@ function tableAdd(){
 			}else{
 				tempdata += "<td> 已结束 </td>";
 			}
-			tempdata += "<td> <button id='data"+i+"' class='button'>查看数据</button> <button id='check"+i+"' class='button'>查看问卷</button> </td>";
+			tempdata += "<td colspan='2'> <button id='data"+i+"' class='button'>查看数据</button> <button id='check"+i+"' class='button'>查看问卷</button> </td>";
 		}
 
 		list.innerHTML += tempdata + "</tr>";
 	}
-	tempdata = "<tr><td><input type='checkbox' name='all' id='all'/></td> <td colspan='4'>  <span class='deleteAll'>全选 <button id='deleteAllButton' class='button'>删除</button></span> </td></tr>";
+	tempdata = "<tr><td><input type='checkbox' name='all' id='all'/></td> <td colspan='5'>  <span class='deleteAll'>全选 <button id='deleteAllButton' class='button'>删除</button></span> </td></tr>";
 	list.innerHTML += tempdata;
 	tableShow();
 	buttonReady();
@@ -67,7 +67,8 @@ function tableShow() {
 }
 // 添加按键事件
 function buttonReady() {
-	document.getElementById("newButton2").onclick = function(){
+	var newButtonList = document.getElementById("newButtonList");
+	newButtonList.onclick = function(){
 		nowQuestion = -1;
 		$("#mbody").load("edit.html");
 	}
@@ -75,7 +76,7 @@ function buttonReady() {
 	document.getElementById('all').onclick = function(){
 		if(allCount===0){
 			for (var i = questionnaire.length - 1; i >= 0; i--) {
-				console.log(document.getElementById('ch'+i));
+				//console.log(document.getElementById('ch'+i));
 				document.getElementById('ch'+i).checked = true;
 				allCount = 1;
 			}
@@ -109,8 +110,6 @@ function buttonReady() {
 				document.getElementById("floatLayer").style.display = "none";
 				var nowLength = questionnaire.length;
 				for (var i = questionnaire.length - 1; i >= 0; i--) {
-						console.log('ch'+i);
-						console.log(document.getElementById('ch'+i));
 					if(document.getElementById('ch'+i).checked === true){
 						deleteI(i);
 					}
@@ -150,18 +149,18 @@ function buttonReady() {
 			}
 			document.getElementById('check'+i).onclick = function() {
 				nowQuestion = parseInt(this.id.charAt(this.id.length-1));
-				console.log(nowQuestion);
+				//console.log(nowQuestion);
 				$("#mbody").load("check.html");
 			}
 		}else{
 			document.getElementById('data'+i).onclick = function() {
 				nowQuestion = parseInt(this.id.charAt(this.id.length-1));
-				console.log(nowQuestion);
+				//console.log(nowQuestion);
 				$("#mbody").load("data.html");
 			}
 			document.getElementById('check'+i).onclick = function() {
 				nowQuestion = parseInt(this.id.charAt(this.id.length-1));
-				console.log(nowQuestion);
+				//console.log(nowQuestion);
 				$("#mbody").load("check.html");
 			}
 		}
@@ -186,7 +185,7 @@ function totalCount() {
 function deleteI(count) {
 	for (var i = count; i < questionnaire.length; i++) {
 		questionnaire[i] = questionnaire[i+1];
-		console.log(i);
+		//console.log(i);
 	}
 	questionnaire.length -= 1;
 }

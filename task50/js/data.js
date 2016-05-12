@@ -67,13 +67,13 @@ function showContent() {
 				if(nowQ[i].type === "more"){
 					temphtml += "<div id='questionDetail"+ i +"'><table id='chartData"+ i +"' class='chartData' width='100%'>";
 					for (var j = 0 ; j < nowD[i].content.length ; j++) {
-						temphtml += "<tr style='color:"+ color[j%color.length] +"'><td class='answerNum' width='10px'>A"+ j +"</td><td width='200px'>"+ nowD[i].content[j] +"</td><td width='60px'>"+ nowD[i].answer[j] +"</td><td><div class='chartBgSpan' width='100%'><div class='chartBgSpan' id='mq"+i+"a"+j+"'></div></div></td></tr>";
+						temphtml += "<tr style='color:"+ color[j%color.length] +"'><td class='answerNum' width='10px'>A"+ j +"</td><td width='200px'>"+ nowD[i].content[j] +"</td><td width='60px'>"+ nowD[i].answer[j] +"</td><td><div class='chartBgSpan' id='mq"+i+"a"+j+"b' width='100%'><div class='chartBgSpan' id='mq"+i+"a"+j+"'></div></div></td></tr>";
 					}
 					temphtml += "</table></div>"
 				}else{
 					if(nowQ[i].type === "abc"){
 						temphtml += "<div id='questionDetail"+ i +"'><table id='chartData"+ i +"' class='chartData' width='100%'>";
-						temphtml += "<tr style='color:#ed5713'><td class='answerNum' width='150px'>本题有效回答为</td><td width='145px'>"+ nowD[i].answer[0] +"</td><td><div class='chartBgSpan' width='100%'><div class='chartBgSpan' id='aq"+i+"'></div></div></td></tr>";
+						temphtml += "<tr style='color:#ed5713'><td class='answerNum' width='150px'>本题有效回答为</td><td width='145px'>"+ nowD[i].answer[0] +"</td><td><div class='chartBgSpan' id='aq"+i+"b' width='100%'><div class='chartBgSpan' id='aq"+i+"'></div></div></td></tr>";
 						temphtml += "</table></div>"
 					}else{
 						console.log(nowQ[i].type);
@@ -105,6 +105,7 @@ function showChart() {
 					mqaj.style.backgroundColor = color[j%color.length];
 					mqaj.style.border = "none";
 					mqaj.style.borderRight = "2px solid #333";
+					document.getElementById('mq'+i+'a'+j+'b').title = mqaj.style.width;
 				}
 			}else{
 				if (nowD[i].type==="abc") {
@@ -113,6 +114,7 @@ function showChart() {
 					aqi.style.backgroundColor = "#ed5713";
 					aqi.style.border = "none";
 					aqi.style.borderRight = "2px solid #333";
+					document.getElementById('aq'+i+'b').title = aqi.style.width;
 				}else{
 					console.log(nowD[i].type);
 				}
@@ -120,8 +122,3 @@ function showChart() {
 		}
 	}
 }
-
-
-
-// 按钮
-

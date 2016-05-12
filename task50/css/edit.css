@@ -80,6 +80,9 @@ input{
 .spaceBoth{
 	padding: 0 10px;
 }
+.pointIt{
+	cursor: pointer;
+}
 
 .questionChoose{
 	margin: 20px;
