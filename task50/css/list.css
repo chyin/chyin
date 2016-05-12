@@ -26,6 +26,9 @@ table th,td{
 	line-height: 60px;
 	position: relative;
 }
+table th{
+	font-size: 1.2em;
+}
 table th button{
 	position: absolute;
 	right: 30px;
@@ -39,19 +42,9 @@ table th button{
 .deleteAll button{
 	margin-left: 10px;
 }
-/*
-#action{
-	float: left;
-}*/
-.orange1 {
-    color: #fef4e9;
-    border: solid 1px #da7c0c;
-    background: #f78d1d;
-    background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
-    background: -moz-linear-gradient(top, #faa51a, #f47a20);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
-}
-.button1 {
+
+
+.buttonList {
     display: inline-block;
     zoom: 1;
     vertical-align: baseline;
@@ -60,8 +53,8 @@ table th button{
     cursor: pointer;
     text-align: center;
     text-decoration: none;
-    font: 15px/100% Arial, Helvetica, sans-serif;
-    padding: .5em 1.5em .55em;
+    font: 18px/100% Arial, Helvetica, sans-serif;
+    padding: .4em 1.2em .45em;
     text-shadow: 0 1px 1px rgba(0,0,0,.3);
     -webkit-border-radius: .3em;
     -moz-border-radius: .3em;
@@ -69,6 +62,14 @@ table th button{
     -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
     box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.buttonList.orange {
+    color: #fef4e9;
+    border: solid 1px #da7c0c;
+    background: #f78d1d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+    background: -moz-linear-gradient(top, #faa51a, #f47a20);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
 }
 .underPress{
 	color: #55E33A;
