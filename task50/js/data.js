@@ -1,4 +1,23 @@
-// 测试nowQuestion
+// 测试nowQuestion 
+var questionnaire = new Array();
+var nowQuestion;
+nowQuestion = 0;
+
+qq1 = [{title:"请添加标题"}]
+q1 = [{title:"调查问卷1"},{type:"one",title:"单选题",content:["选项一","选项二"]},{type:"more",title:"多选题",content:["选项一","选项二","选项三"]},{type:"abc",title:"文本题",required:false,content:[]},{type:"one",title:"单选题",content:["选项一","选项二"]},{type:"more",title:"多选题",content:["选项一","选项二","选项三"]},{type:"abc",title:"文本题",required:true,content:[]}];
+q2 = [{title:"调查问卷2"},{type:"one",title:"单选题",content:["选项一","选项二"]},{type:"more",title:"多选题",content:["选项一","选项二","选项三"]},{type:"abc",title:"文本题",content:[]}];
+q3 = [{title:"调查问卷3"},{type:"one",title:"单选题",content:["选项一","选项二"]},{type:"more",title:"多选题",content:["选项一","选项二","选项三"]},{type:"abc",title:"文本题",content:[],required:true}];
+
+a1 = [[{type:"one",answer:[0]},{type:"more",answer:[0,2]},{type:"abc",answer:["xty"]},{type:"one",answer:[0]},{type:"more",answer:[0,2]},{type:"abc",answer:["xty"]}],[{type:"one",answer:[0]},{type:"more",answer:[0,2]},{type:"abc",answer:["xty"]},{type:"one",answer:[0]},{type:"more",answer:[0,2]},{type:"abc",answer:["xty"]}]];
+d1 = null;
+d2 = null;
+d3 = [];
+questionnaire = [
+	{title:"我的问卷1",time:new Date(2015,8,8),state:1,question:q1,data:d1},
+	{title:"我的问卷2",time:new Date(2016,5,8),state:0,question:q2,data:d2},
+	{title:"我的问卷3",time:new Date(2016,8,8),state:1,question:q3,data:d3}
+];
+
 if(nowQuestion>=0){
 	nowQ = questionnaire[nowQuestion].question;
 }else{
@@ -55,13 +74,13 @@ function showContent() {
 		questionArea.style.display = "block";
 		for (var i = 1; i < nowQ.length; i++) {
 			var temphtml;
-			temphtml = "<div class='questionDetail'><div><span>Q"+ i +"</span><span class='spaceBoth'>"+ nowQ[i].title + ((nowQ[i].type==='abc' && nowQ[i].required)?("（此题必填）"):'') +"</span></div>";
+			temphtml = "<div class='questionZone'><div><span>Q"+ i +"</span><span class='spaceBoth'>"+ nowQ[i].title + ((nowQ[i].type==='abc' && nowQ[i].required)?("（此题必填）"):'') +"</span></div>";
 			if(nowQ[i].type === "one"){
-				temphtml += "<div id='questionDetail"+ i +"'><table id='chartData"+ i +"' class='chartData' width='300px'>";
+				temphtml += "<div id='questionDetail"+ i +"' class='questionDetail'><table id='chartData"+ i +"' class='chartData' width='300px'>";
 				for (var j = 0 ; j < nowD[i].content.length ; j++) {
 					temphtml += "<tr style='color:"+ color[j%color.length] +"'><td class='answerNum' width='10px'>A"+ j +"</td><td>"+ nowD[i].content[j] +"</td><td>"+ nowD[i].answer[j] +"</td></tr>";
 				}
-				temphtml += "</table>	<canvas id='chart"+ i +"' width='600px' height='500px' class='chart'></canvas></div>"
+				temphtml += "</table>	<canvas id='chart"+ i +"' width='500px' height='400px' class='chart'></canvas></div>"
 	
 			}else{
 				if(nowQ[i].type === "more"){
@@ -90,9 +109,20 @@ function showContent() {
 function showChart() {
 	for (var i = nowD.length - 1; i > 0; i--) {
 		if (nowD[i].type==="one") {
+			chartI = document.getElementById("chart"+i);
+			var qdIp = chartI.offsetParent.offsetWidth;
+			console.log(qdIp);
+			if (parseInt(qdIp)>800) {
+				chartI.style.left = "300px";
+				chartI.style.top = "0";
+			}else{
+				chartI.style.left = (qdIp-500)/2 + "px";
+				chartI.style.top = "80px";
+				document.getElementById("questionDetail"+i).style.height = "480px";
+			}
 			pieChart(i);
-			document.getElementById("questionDetail"+i).style.height = "500px";//document.getElementById("chart"+i).style.offsetHeight;
-			document.getElementById("questionDetail"+i).style.position = "relative";
+			//document.getElementById("questionDetail"+i).style.height = "500px";//document.getElementById("chart"+i).style.offsetHeight;
+			//document.getElementById("questionDetail"+i).style.position = "relative";
 		}else{
 			if (nowD[i].type==="more") {
 				var moreTotal = 0;

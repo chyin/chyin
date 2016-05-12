@@ -8,10 +8,10 @@ function pieChart(question) {
 	var sliceBorderWidth = 1;                         // Width (in pixels) of the border around each slice
 	var sliceBorderStyle = "#fff";                    // Colour of the border around each slice
 	var sliceGradientColour = "#ddd";                 // Colour to use for one end of the chart gradient
-	var maxPullOutDistance = 25;                      // How far, in pixels, to pull slices out when clicked
+	var maxPullOutDistance = 15;                      // How far, in pixels, to pull slices out when clicked
 	var pullOutFrameStep = 4;                         // How many pixels to move a slice with each animation frame
 	var pullOutFrameInterval = 40;                    // How long (in ms) between each animation frame
-	var pullOutLabelPadding = 65;                     // Padding between pulled-out slice and its label  
+	var pullOutLabelPadding = 55;                     // Padding between pulled-out slice and its label  
 	var pullOutLabelFont = "bold 16px 'Trebuchet MS', Verdana, sans-serif";  // Pull-out slice label font
 	var pullOutValueFont = "bold 12px 'Trebuchet MS', Verdana, sans-serif";  // Pull-out slice value font
 	var pullOutValuePrefix = "总计：";                     // Pull-out slice value prefix
@@ -53,7 +53,6 @@ function pieChart(question) {
 
 		// Get the canvas element in the page
 		canvas = document.getElementById('chart'+question);
-		console.log('chart'+question);
 
 		// Exit if the browser isn't canvas-capable
 		if ( typeof canvas.getContext === 'undefined' ) return;
@@ -308,7 +307,7 @@ function pieChart(question) {
 			// and add a drop shadow.
 
 			var midAngle = (startAngle + endAngle) / 2;
-			var actualPullOutDistance = currentPullOutDistance * easeOut( currentPullOutDistance/maxPullOutDistance, .8 );
+			var actualPullOutDistance = currentPullOutDistance * easeOut( currentPullOutDistance/maxPullOutDistance, .5 );
 			startX = centreX + Math.cos(midAngle) * actualPullOutDistance;
 			startY = centreY + Math.sin(midAngle) * actualPullOutDistance;
 			context.fillStyle = 'rgb(' + chartColours[slice].join(',') + ')';
@@ -381,10 +380,12 @@ function pieChart(question) {
 	function getElementAbsPos(e,arrParentid,isID) {  
 	    var t = e.offsetTop;  
 	    var l = e.offsetLeft;  
+	    //console.log(l,t);
 	    while(e = e.offsetParent)  
 	    {  
 	        t += e.offsetTop;  
 		    l += e.offsetLeft;  
+		    //console.log(l,t);
 	    }  
 	    if(arguments.length >= 2)  
 	    {  

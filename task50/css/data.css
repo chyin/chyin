@@ -24,10 +24,13 @@
 }
 
 .questionDetail{
-	padding: 20px;
+	height: 400px;
 	position: relative;
 }
-.questionDetail:hover{
+.questionZone{
+	padding: 20px;
+}
+.questionZone:hover{
 	background-color: #FDF1E6;
 }
 .questionOption{
@@ -51,25 +54,14 @@
 	color: #000000;
 }
 
-
-.chart, .chartData {
-	border: none;
-/*border: 1px solid #333;
-background: #ebedf2 url("../democode/2161/images/gradient.png") repeat-x 0 0;*/
-}
-
 .chart {
-	display: block;
-	margin: 0 0 50px 0;
 	cursor: pointer;
 	position: absolute;
-	right: 0;
-	top: 0;
 }
 
 .chartData {
-	margin: 0 40px 0 0;
 	border-collapse: collapse;
+	border: none;
 	/*
 	box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
 	-moz-box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
@@ -79,8 +71,6 @@ background: #ebedf2 url("../democode/2161/images/gradient.png") repeat-x 0 0;*/
 
 .chartData th, .chartData td {
 	padding: 0.5em;
-	/*
-	border: 1px dotted #666;*/
 	text-align: left;
 }
 .chartData td {
