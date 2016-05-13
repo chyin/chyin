@@ -18,7 +18,6 @@ questionnaire = [
 ];
 
 
-window.onload = function(){
 	//console.log(questionnaire);
 	
 	//链接事件
@@ -52,7 +51,6 @@ window.onload = function(){
 			}
 		}
 	}
-}
 
 /*
 $(document).ready(function(){

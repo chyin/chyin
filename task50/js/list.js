@@ -15,6 +15,7 @@ questionnaire = [
 
 var list = document.getElementById("list");
 var allCount = 0;
+console.log("tableAdd");
 tableAdd();
 
 // 删除表格内容
@@ -31,7 +32,8 @@ function tableAdd(){
 		tempdata += "<tr class='trShow'><td> <input type='checkbox' name=" + i + " id='ch" + i + "''> </td>";
 		tempdata += "<td>" + questionnaire[i].title + "</td>";
 		var iTime = getTimeDetail(questionnaire[i].time);
-		tempdata += "<td>" + iTime.year + "-" + (iTime.month<10?"0"+(iTime.month):iTime.month) + "-" + (iTime.day<10?"0"+iTime.day:iTime.day) + "</td>";
+		console.log("ready");
+		tempdata += "<td>" + iTime.year + "-" + (iTime.month<10?("0"+iTime.month):iTime.month) + "-" + (iTime.day<10?("0"+iTime.day):iTime.day) + "</td>";
 		if(questionnaire[i].state===0){
 			tempdata += "<td class='underPress'> 未发布 </td>";
 			tempdata += "<td colspan='2'> <button id='edit"+i+"' class='button'>编辑</button> <button id='delete"+i+"' class='button'>删除</button> <button id='check"+i+"' class='button'>查看问卷</button> </td>";
