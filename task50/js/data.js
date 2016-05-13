@@ -93,7 +93,8 @@ function showChart() {
 		if (nowD[i].type==="one") {
 			console.log("chart"+i);
 			chartI = document.getElementById("chart"+i);
-			var qdIp = chartI.offsetParent.offsetWidth;
+			var questionDetailI = document.getElementById("questionDetail"+i);
+			var qdIp = questionDetailI.offsetWidth;
 			console.log(chartI.offsetParent);
 			console.log(qdIp);
 			if (parseInt(qdIp)>800) {

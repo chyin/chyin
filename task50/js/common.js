@@ -1,4 +1,5 @@
 // getElementByClassName
+console.log("common");
 function getClass1(clsName,parent){
 	var oParent = parent?parent:document,
 		eles = [];
@@ -16,7 +17,7 @@ function getClass1(clsName,parent){
 }
 // getElementByClassName
 function getClass(clsName,parent){
-	var oParent = parent?document.getElementById(parent):document,
+	var oParent = parent?(document.getElementById(parent)):document,
 		eles = [];
 		elements = oParent.getElementsByTagName('*');
 

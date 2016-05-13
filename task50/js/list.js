@@ -13,6 +13,7 @@ questionnaire = [
 ];
 */
 
+console.log("list");
 var list = document.getElementById("list");
 var allCount = 0;
 console.log("tableAdd");

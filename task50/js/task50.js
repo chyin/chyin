@@ -18,7 +18,7 @@ questionnaire = [
 ];
 
 
-//console.log(questionnaire);
+console.log(questionnaire);
 
 //链接事件
 var manage = document.getElementById("manage");
@@ -36,6 +36,7 @@ myQuestion.onmouseover = function(){
 	myQuestion.style.cursor = "pointer";  // hand 亦可
 }
 
+console.log(questionnaire);
 //$("#mbody").load("data.html");
 //加载list或new
 choose();
@@ -45,6 +46,7 @@ function choose(){
 		$("#mbody").load("new.html");
 	}else{
 		if(questionnaire.length > 0){
+			console.log("list");
 			$("#mbody").load("list.html");
 		}else{
 			console.log("Something wrong with questionnaire!");
