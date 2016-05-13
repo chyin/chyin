@@ -380,12 +380,12 @@ function pieChart(question) {
 	function getElementAbsPos(e,arrParentid,isID) {  
 	    var t = e.offsetTop;  
 	    var l = e.offsetLeft;  
-	    console.log(l,t,e.offsetParent);
+	    //console.log(l,t,e.offsetParent);
 	    while(e = e.offsetParent)  
 	    {  
 	        t += e.offsetTop;  
 		    l += e.offsetLeft;  
-		    console.log(l,t,e.offsetParent);
+		    //console.log(l,t,e.offsetParent);
 	    }  
 	    if(arguments.length >= 2)  
 	    {  

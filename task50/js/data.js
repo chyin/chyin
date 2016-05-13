@@ -21,7 +21,7 @@ function getDate() {
 	nowD = clone(nowQ);
 	for (var i = nowQ.length - 1; i > 0; i--) {
 		nowD[i].answer = [];
-		switch(nowD[i].type){
+		switch(nowD[i].kind){
 			case "one"  : 
 				var temptotal = 100;
 				for (var j = nowQ[i].content.length - 1; j > 0; j--) {
@@ -42,7 +42,7 @@ function getDate() {
 					nowD[i].answer[0] = Math.floor(Math.random()*100);
 				}
 				break;
-			default : console.log(nowD[i].type);
+			default : console.log(nowD[i].kind);
 		}
 	}
 }
@@ -56,8 +56,8 @@ function showContent() {
 		questionArea.style.display = "block";
 		for (var i = 1; i < nowQ.length; i++) {
 			var temphtml;
-			temphtml = "<div class='questionZone'><div><span>Q"+ i +"</span><span class='spaceBoth'>"+ nowQ[i].title + ((nowQ[i].type==='abc' && nowQ[i].required)?("（此题必填）"):'') +"</span></div>";
-			if(nowQ[i].type === "one"){
+			temphtml = "<div class='questionZone'><div><span>Q"+ i +"</span><span class='spaceBoth'>"+ nowQ[i].title + ((nowQ[i].kind==='abc' && nowQ[i].required)?("（此题必填）"):'') +"</span></div>";
+			if(nowQ[i].kind === "one"){
 				temphtml += "<div id='questionDetail"+ i +"' class='questionDetail'><table id='chartData"+ i +"' class='chartData' width='300px'>";
 				for (var j = 0 ; j < nowD[i].content.length ; j++) {
 					temphtml += "<tr style='color:"+ color[j%color.length] +"'><td class='answerNum' width='10px'>A"+ j +"</td><td>"+ nowD[i].content[j] +"</td><td>"+ nowD[i].answer[j] +"</td></tr>";
@@ -65,19 +65,19 @@ function showContent() {
 				temphtml += "</table>	<canvas id='chart"+ i +"' width='500px' height='400px' class='chart'></canvas></div>"
 	
 			}else{
-				if(nowQ[i].type === "more"){
+				if(nowQ[i].kind === "more"){
 					temphtml += "<div id='questionDetail"+ i +"'><table id='chartData"+ i +"' class='chartData' width='100%'>";
 					for (var j = 0 ; j < nowD[i].content.length ; j++) {
 						temphtml += "<tr style='color:"+ color[j%color.length] +"'><td class='answerNum' width='10px'>A"+ j +"</td><td width='200px'>"+ nowD[i].content[j] +"</td><td width='60px'>"+ nowD[i].answer[j] +"</td><td><div class='chartBgSpan' id='mq"+i+"a"+j+"b' width='100%'><div class='chartBgSpan' id='mq"+i+"a"+j+"'></div></div></td></tr>";
 					}
 					temphtml += "</table></div>"
 				}else{
-					if(nowQ[i].type === "abc"){
+					if(nowQ[i].kind === "abc"){
 						temphtml += "<div id='questionDetail"+ i +"'><table id='chartData"+ i +"' class='chartData' width='100%'>";
 						temphtml += "<tr style='color:#ed5713'><td class='answerNum' width='150px'>本题有效回答为</td><td width='145px'>"+ nowD[i].answer[0] +"</td><td><div class='chartBgSpan' id='aq"+i+"b' width='100%'><div class='chartBgSpan' id='aq"+i+"'></div></div></td></tr>";
 						temphtml += "</table></div>"
 					}else{
-						console.log(nowQ[i].type);
+						console.log(nowQ[i].kind);
 					}
 				}
 			}
@@ -90,13 +90,10 @@ function showContent() {
 
 function showChart() {
 	for (var i = 1 ; i < nowD.length; i++) {
-		if (nowD[i].type==="one") {
-			console.log("chart"+i);
+		if (nowD[i].kind==="one") {
 			chartI = document.getElementById("chart"+i);
 			var questionDetailI = document.getElementById("questionDetail"+i);
 			var qdIp = questionDetailI.offsetWidth;
-			console.log(chartI.offsetParent);
-			console.log(qdIp);
 			if (parseInt(qdIp)>800) {
 				chartI.style.left = "300px";
 				chartI.style.top = "0";
@@ -109,7 +106,7 @@ function showChart() {
 			//document.getElementById("questionDetail"+i).style.height = "500px";//document.getElementById("chart"+i).style.offsetHeight;
 			//document.getElementById("questionDetail"+i).style.position = "relative";
 		}else{
-			if (nowD[i].type==="more") {
+			if (nowD[i].kind==="more") {
 				var moreTotal = 0;
 				for (var j = nowD[i].answer.length - 1; j >= 0; j--) {
 					moreTotal += nowD[i].answer[j];
@@ -123,7 +120,7 @@ function showChart() {
 					document.getElementById('mq'+i+'a'+j+'b').title = mqaj.style.width;
 				}
 			}else{
-				if (nowD[i].type==="abc") {
+				if (nowD[i].kind==="abc") {
 					var aqi = document.getElementById('aq'+i);
 					aqi.style.width = nowD[i].answer[0]+'%';
 					aqi.style.backgroundColor = "#ed5713";
@@ -131,10 +128,9 @@ function showChart() {
 					aqi.style.borderRight = "2px solid #333";
 					document.getElementById('aq'+i+'b').title = aqi.style.width;
 				}else{
-					console.log(nowD[i].type);
+					console.log(nowD[i].kind);
 				}
 			}
 		}
 	}
-			console.log(chartI.offsetParent);
 }

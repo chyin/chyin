@@ -3,11 +3,11 @@ var nowQuestion;
 nowQuestion = 0;
 
 qq1 = [{title:"请添加标题"}]
-q1 = [{title:"调查问卷1"},{type:"one",title:"单选题",content:["选项一","选项二"]},{type:"more",title:"多选题",content:["选项一","选项二","选项三"]},{type:"abc",title:"文本题",required:false,content:[]},{type:"one",title:"单选题",content:["选项一","选项二"]},{type:"more",title:"多选题",content:["选项一","选项二","选项三"]},{type:"abc",title:"文本题",required:true,content:[]}];
-q2 = [{title:"调查问卷2"},{type:"one",title:"单选题",content:["选项一","选项二"]},{type:"more",title:"多选题",content:["选项一","选项二","选项三"]},{type:"abc",title:"文本题",content:[]}];
-q3 = [{title:"调查问卷3"},{type:"one",title:"单选题",content:["选项一","选项二"]},{type:"more",title:"多选题",content:["选项一","选项二","选项三"]},{type:"abc",title:"文本题",content:[],required:true}];
+q1 = [{title:"调查问卷1"},{kind:"one",title:"单选题",content:["选项一","选项二"]},{kind:"more",title:"多选题",content:["选项一","选项二","选项三"]},{kind:"abc",title:"文本题",required:false,content:[]},{kind:"one",title:"单选题",content:["选项一","选项二"]},{kind:"more",title:"多选题",content:["选项一","选项二","选项三"]},{kind:"abc",title:"文本题",required:true,content:[]}];
+q2 = [{title:"调查问卷2"},{kind:"one",title:"单选题",content:["选项一","选项二"]},{kind:"more",title:"多选题",content:["选项一","选项二","选项三"]},{kind:"abc",title:"文本题",content:[]}];
+q3 = [{title:"调查问卷3"},{kind:"one",title:"单选题",content:["选项一","选项二"]},{kind:"more",title:"多选题",content:["选项一","选项二","选项三"]},{kind:"abc",title:"文本题",content:[],required:true}];
 
-a1 = [[{type:"one",answer:[0]},{type:"more",answer:[0,2]},{type:"abc",answer:["xty"]},{type:"one",answer:[0]},{type:"more",answer:[0,2]},{type:"abc",answer:["xty"]}],[{type:"one",answer:[0]},{type:"more",answer:[0,2]},{type:"abc",answer:["xty"]},{type:"one",answer:[0]},{type:"more",answer:[0,2]},{type:"abc",answer:["xty"]}]];
+a1 = [[{kind:"one",answer:[0]},{kind:"more",answer:[0,2]},{kind:"abc",answer:["xty"]},{kind:"one",answer:[0]},{kind:"more",answer:[0,2]},{kind:"abc",answer:["xty"]}],[{kind:"one",answer:[0]},{kind:"more",answer:[0,2]},{kind:"abc",answer:["xty"]},{kind:"one",answer:[0]},{kind:"more",answer:[0,2]},{kind:"abc",answer:["xty"]}]];
 d1 = null;
 d2 = null;
 d3 = [];
@@ -18,7 +18,7 @@ questionnaire = [
 ];
 
 
-console.log(questionnaire);
+//console.log(questionnaire);
 
 //链接事件
 var manage = document.getElementById("manage");
@@ -36,7 +36,6 @@ myQuestion.onmouseover = function(){
 	myQuestion.style.cursor = "pointer";  // hand 亦可
 }
 
-console.log(questionnaire);
 //$("#mbody").load("data.html");
 //加载list或new
 choose();
@@ -46,7 +45,6 @@ function choose(){
 		$("#mbody").load("new.html");
 	}else{
 		if(questionnaire.length > 0){
-			console.log("list");
 			$("#mbody").load("list.html");
 		}else{
 			console.log("Something wrong with questionnaire!");

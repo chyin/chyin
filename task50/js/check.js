@@ -38,21 +38,21 @@ function showContent() {
 		questionArea.style.display = "block";
 		for (var i = 1; i < nowQ.length; i++) {
 			var temphtml;
-			temphtml = "<div class='questionDetail'><span>Q"+ i +"</span><span class='spaceBoth'>"+ nowQ[i].title + ((nowQ[i].type==='abc' && nowQ[i].required)?("（此题必填）"):'') + "</span>";
-			if(nowQ[i].type === "one"){
+			temphtml = "<div class='questionDetail'><span>Q"+ i +"</span><span class='spaceBoth'>"+ nowQ[i].title + ((nowQ[i].kind==='abc' && nowQ[i].required)?("（此题必填）"):'') + "</span>";
+			if(nowQ[i].kind === "one"){
 				for(var j in nowQ[i].content){
 					temphtml += "<div class='questionOption'><input type='radio' name='"+ i +"' id='q"+ i +"a"+ j +"' class='pointIt'/><span class='spaceBoth'>"+ nowQ[i].content[j] +"</span></div>";
 				}
 			}else{
-				if(nowQ[i].type === "more"){
+				if(nowQ[i].kind === "more"){
 					for(var j in nowQ[i].content){
 						temphtml += "<div class='questionOption'><input type='checkbox' name='"+ i +"' id='q"+ i +"a"+ j +"' class='pointIt'/><span class='spaceBoth'>"+ nowQ[i].content[j] +"</span></div>";
 					}
 				}else{
-					if(nowQ[i].type === "abc"){
+					if(nowQ[i].kind === "abc"){
 						temphtml += "<div class='questionOption'><textarea id='a"+ i +"' rows='5'></textarea></div>";
 					}else{
-						console.log(nowQ[i].type);
+						console.log(nowQ[i].kind);
 					}
 				}
 			}
@@ -73,7 +73,7 @@ function inputAction() {
 	// 每题选项
 	var qa = new Array(nowA.length);
 	for (var i = nowA.length - 1; i > 0; i--) {
-		if (nowA[i].type==="abc") {
+		if (nowA[i].kind==="abc") {
 			document.getElementById("a"+i).style.width = document.body.offsetWidth * 0.7 * 0.4 + "px";
 			qa[i] = document.getElementById("a"+i);
 			qa[i].i = i;
@@ -82,7 +82,7 @@ function inputAction() {
 			}
 		}else{
 			qa[i] = [];
-			if (nowA[i].type==="more") {
+			if (nowA[i].kind==="more") {
 				for (var j = nowA[i].content.length - 1; j >= 0; j--) {
 					qa[i][j] = document.getElementById("q"+i+"a"+j);
 					qa[i][j].i = i;
@@ -110,7 +110,7 @@ function checkAll() {
 	var checkEvery = 0;
 	var qa = new Array(nowA.length);
 	for (var i = nowA.length - 1; i > 0; i--) {
-		if (nowA[i].type==="abc") {
+		if (nowA[i].kind==="abc") {
 			checkEvery += 1;
 			if (nowA[i].required) {
 				var tempcontent = nowA[i].content;
@@ -124,7 +124,7 @@ function checkAll() {
 				}
 			}
 		}else{
-			if (nowA[i].type==="more") {
+			if (nowA[i].kind==="more") {
 				var tempcount = 0;
 				for (var j = nowA[i].content.length - 1; j >= 0; j--) {
 					if (1===nowA[i].answer[j]) {

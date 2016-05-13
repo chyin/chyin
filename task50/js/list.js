@@ -13,10 +13,8 @@ questionnaire = [
 ];
 */
 
-console.log("list");
 var list = document.getElementById("list");
 var allCount = 0;
-console.log("tableAdd");
 tableAdd();
 
 // 删除表格内容
@@ -33,7 +31,6 @@ function tableAdd(){
 		tempdata += "<tr class='trShow'><td> <input type='checkbox' name=" + i + " id='ch" + i + "''> </td>";
 		tempdata += "<td>" + questionnaire[i].title + "</td>";
 		var iTime = getTimeDetail(questionnaire[i].time);
-		console.log("ready");
 		tempdata += "<td>" + iTime.year + "-" + (iTime.month<10?("0"+iTime.month):iTime.month) + "-" + (iTime.day<10?("0"+iTime.day):iTime.day) + "</td>";
 		if(questionnaire[i].state===0){
 			tempdata += "<td class='underPress'> 未发布 </td>";

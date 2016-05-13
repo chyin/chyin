@@ -39,24 +39,24 @@ function showContent() {
 		questionArea.style.display = "block";
 		for (var i = 1; i < nowQ.length; i++) {
 			var temphtml;
-			temphtml = "<div class='questionDetail question"+ i +"'><div class='questionTitle'>Q"+ i +"<input type='text' id='q"+ i +"' class='spaceBoth question"+ i +"' value='"+ nowQ[i].title +"'/></div>";
-			if(nowQ[i].type === "one"){
+			temphtml = "<div class='questionDetail question"+ i +"'><div class='questionTitle'>Q"+ i +"<input kind='text' id='q"+ i +"' class='spaceBoth question"+ i +"' value='"+ nowQ[i].title +"'/></div>";
+			if(nowQ[i].kind === "one"){
 				for(var j=0; j<nowQ[i].content.length; j++){
 					temphtml += "<div class='questionOption'><span class='questionAnswerDelete' id='deleteq"+i+"a"+j+"'>×</span><input type='radio' name='"+ i +"'/><input type='text' id='q"+ i +"a"+ j +"' class='inputLength spaceBoth question"+ i +"' value='"+ nowQ[i].content[j] +"'/></div>";
 				}
 				temphtml += "<div class='questionUp'><span id='nOption"+ i +"' class='spaceBoth pointIt'>新增选项</span><span id='oFirst"+ i +"' class='spaceBoth pointIt'>首字排序</span></div>";
 			}else{
-				if(nowQ[i].type === "more"){
+				if(nowQ[i].kind === "more"){
 					for(var j=0; j<nowQ[i].content.length; j++){
 						temphtml += "<div class='questionOption'><span class='questionAnswerDelete' id='deleteq"+i+"a"+j+"'>×</span><input type='checkbox' name='"+ i +"'/><input type='text' id='q"+ i +"a"+ j +"' class='inputLength spaceBoth question"+ i +"' value='"+ nowQ[i].content[j] +"'/></div>";
 					}
 					temphtml += "<div class='questionUp'><span id='nOption"+ i +"' class='spaceBoth pointIt'>新增选项</span><span id='oFirst"+ i +"' class='spaceBoth pointIt'>首字排序</span></div>";
 				}else{
-					if(nowQ[i].type === "abc"){
+					if(nowQ[i].kind === "abc"){
 						temphtml += "<div class='questionOption'><textarea  id='q"+ i +"a' rows='5'></textarea></div>";
 						temphtml += "<div class='questionUpRe'><span><input type='checkbox' checked="+ nowQ[i].required +" name='required"+ i +"' id='required"+ i +"' class='spaceBoth pointIt'/><span class='spaceBoth'>此题是否必填</span></span></div>";
 					}else{
-						console.log(nowQ[i].type);
+						console.log(nowQ[i].kind);
 					}
 				}
 			}
@@ -100,7 +100,7 @@ function inputAction() {
 	}
 	var qr = new Array(nowQ.length);
 	for (var i = nowQ.length - 1; i >= 0; i--) {
-		if (nowQ[i].type==="abc") {
+		if (nowQ[i].kind==="abc") {
 			document.getElementById("q"+i+"a").style.width = document.body.offsetWidth * 0.7 * 0.4 + "px";
 			qr[i] = document.getElementById("required"+i);
 			qr[i].i = i;
@@ -324,7 +324,7 @@ function addQuestion(qType) {
 			default : console.log(qTitle);
 		}
 		nowQ[nowQ.length] = {
-			type: qType,
+			kind: qType,
 			title: qTitle,
 			content: qContent
 		};

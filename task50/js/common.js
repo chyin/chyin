@@ -1,5 +1,4 @@
 // getElementByClassName
-console.log("common");
 function getClass1(clsName,parent){
 	var oParent = parent?parent:document,
 		eles = [];
