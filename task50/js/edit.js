@@ -139,8 +139,9 @@ function styleContent() {
 					for (var j = questionAnswerDelete.length - 1; j >= 0; j--) {
 						questionAnswerDelete[j].style.display = "block";
 						questionAnswerDelete[j].i = thisI;
+						questionAnswerDelete[j].j = j;
 						questionAnswerDelete[j].onclick = function(){
-							for (var ij = j ; ij < nowQ[this.i].content.length - 1; ij++) {
+							for (var ij = this.j ; ij < nowQ[this.i].content.length - 1; ij++) {
 								nowQ[this.i].content[ij] = nowQ[this.i].content[ij+1]; 
 							}
 							nowQ[this.i].content.length -= 1;
