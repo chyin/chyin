@@ -135,4 +135,5 @@ function showChart() {
 			}
 		}
 	}
+			console.log(chartI.offsetParent);
 }
