@@ -36,9 +36,9 @@ myQuestion.onmouseover = function(){
 	myQuestion.style.cursor = "pointer";  // hand 亦可
 }
 
-//$("#mbody").load("data.html");
+$("#mbody").load("list.html");
 //加载list或new
-choose();
+//choose();
 
 function choose(){
 	if(questionnaire.length === 0){

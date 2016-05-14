@@ -195,5 +195,5 @@ function getTimeDetail(timeX) {
 	var year = timeX.getFullYear();
 	var month = timeX.getMonth() + 1;
 	var day = timeX.getDate();
-	return {year,month,day};
+	return {year:year,month:month,day:day};
 }
