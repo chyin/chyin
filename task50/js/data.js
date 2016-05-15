@@ -28,12 +28,25 @@ if(nowQuestion>=0){
 var nowD = new Array(nowQ.length);
 var color = ["#0DA068","#194E9C","#ED9C13","#ED5713","#057249","#5F91DC","#F88E5D"];
 
-getDate();
+var questionArea = document.getElementById("question");
 
-showContent();
-document.getElementById("returnButton").onclick = function(){
-	//$("#mbody").load("list.html");
-	loadAction("list.html");
+questionArea.innerHTML = "<div id=cssDetectFoo></div>";
+var cssDetect = setInterval("startAll()",50);
+
+// 检测是否加载成功
+function startAll() {
+	if (cssDetectFoo.offsetWidth==="1px") {
+		questionArea.innerHTML = "";
+
+		getDate();
+		showContent();
+		document.getElementById("returnButton").onclick = function(){
+			//$("#mbody").load("list.html");
+			loadAction("list.html");
+		}
+		clearInterval(cssDetect);
+	}
+	console.log(questionArea.innerHTML);
 }
 
 // 产生随机数据
@@ -69,7 +82,6 @@ function getDate() {
 
 function showContent() {
 	document.getElementById("qTitle").innerHTML = nowQ[0].title;
-	var questionArea = document.getElementById("question");
 	if(nowQ.length === 1){
 		questionArea.style.display = "none";
 	}else{

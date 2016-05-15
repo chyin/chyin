@@ -2,6 +2,9 @@
 	margin: 0;
 	padding: 0;
 }
+#cssDetectFoo{
+	width: 1px;
+}
 #dataZone{
 	margin: 0 50px;
 	position: relative;
