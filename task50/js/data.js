@@ -35,7 +35,7 @@ var cssDetect = setInterval("startAll()",50);
 
 // 检测是否加载成功
 function startAll() {
-	if (cssDetectFoo.offsetWidth==="1px") {
+	if (cssDetectFoo.offsetWidth===1) {
 		questionArea.innerHTML = "";
 
 		getDate();
