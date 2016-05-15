@@ -143,6 +143,8 @@ function pieChart(question) {
 
 console.log(mouseX);
 console.log(mouseY);
+console.log(centreXX);
+console.log(centreYY);
 
 		if ( distanceFromCentre <= chartRadius ) {
 
