@@ -79,7 +79,6 @@ function loadAction(htmlNow) {
                 console.log(msg + XMLHttpRequest.status + " " + XMLHttpRequest.statusText);
             }  
             else {  
-                console.log(msg + XMLHttpRequest.status + " " + XMLHttpRequest.statusText);
                 console.log("加载完成");
                 //$(this).fadeIn();  
             }  

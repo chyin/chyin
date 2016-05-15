@@ -141,10 +141,6 @@ function pieChart(question) {
 		var yFromCentre = mouseY - centreYY;
 		var distanceFromCentre = Math.sqrt( Math.pow( Math.abs( xFromCentre ), 2 ) + Math.pow( Math.abs( yFromCentre ), 2 ) );
 
-console.log(mouseX);
-console.log(mouseY);
-console.log(centreXX);
-console.log(centreYY);
 
 		if ( distanceFromCentre <= chartRadius ) {
 
@@ -385,12 +381,12 @@ console.log(centreYY);
 	function getElementAbsPos(e,arrParentid,isID) {  
 	    var t = e.offsetTop;  
 	    var l = e.offsetLeft;  
-	    console.log(l,t,e.offsetParent);
+	    //console.log(l,t,e.offsetParent);
 	    while(e = e.offsetParent)  
 	    {  
 	        t += e.offsetTop;  
 		    l += e.offsetLeft;  
-		    console.log(l,t,e.offsetParent);
+		    //console.log(l,t,e.offsetParent);
 	    }  
 	    if(arguments.length >= 2)  
 	    {  

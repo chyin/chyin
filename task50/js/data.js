@@ -35,7 +35,7 @@ var cssDetect = setInterval("startAll()",50);
 
 // 检测是否加载成功
 function startAll() {
-	console.log(cssDetectFoo.offsetWidth);
+	//console.log(cssDetectFoo.offsetWidth);
 	if (1===cssDetectFoo.offsetWidth) {
 		questionArea.innerHTML = "";
 
@@ -47,7 +47,6 @@ function startAll() {
 		}
 		clearInterval(cssDetect);
 	}
-	console.log(questionArea.innerHTML);
 }
 
 // 产生随机数据
