@@ -35,17 +35,18 @@ myQuestion.onclick = function(){
 myQuestion.onmouseover = function(){
 	myQuestion.style.cursor = "pointer";  // hand 亦可
 }
-
-$("#mbody").load("list.html");
+$.ajaxSetup({async: false});
+loadAction("list.html");
+//$("#mbody").load("list.html");
 //加载list或new
 //choose();
 
 function choose(){
 	if(questionnaire.length === 0){
-		$("#mbody").load("new.html");
+		loadAction("new.html");
 	}else{
 		if(questionnaire.length > 0){
-			$("#mbody").load("list.html");
+			loadAction("list.html");
 		}else{
 			console.log("Something wrong with questionnaire!");
 		}

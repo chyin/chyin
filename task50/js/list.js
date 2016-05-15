@@ -72,7 +72,8 @@ function buttonReady() {
 	var newButtonList = document.getElementById("newButtonList");
 	newButtonList.onclick = function(){
 		nowQuestion = -1;
-		$("#mbody").load("edit.html");
+		//$("#mbody").load("edit.html");
+		loadAction("edit.html");
 	}
 	// 复选框
 	document.getElementById('all').onclick = function(){
@@ -117,7 +118,8 @@ function buttonReady() {
 					}
 				}
 				if(questionnaire.length===0){
-					$("#mbody").load("new.html");
+					//$("#mbody").load("new.html");
+					loadAction("new.html");
 				}else{
 					tableDelete(nowLength);
 					tableAdd();
@@ -131,7 +133,8 @@ function buttonReady() {
 			document.getElementById('edit'+i).onclick = function() {
 				nowQuestion = parseInt(this.id.charAt(this.id.length-1));
 				//console.log(nowQuestion);
-				$("#mbody").load("edit.html");
+				//$("#mbody").load("edit.html");
+				loadAction("edit.html");
 			}
 			document.getElementById('delete'+i).onclick = function() {
 				document.getElementById("coverLayer").style.display = "block";
@@ -142,7 +145,8 @@ function buttonReady() {
 					document.getElementById("floatLayer").style.display = "none";
 					deleteI(tempNum);
 					if(questionnaire.length===0){
-						$("#mbody").load("new.html");
+						//$("#mbody").load("new.html");
+						loadAction("new.html");
 					}else{
 						tableDelete(questionnaire.length+1);
 						tableAdd();
@@ -152,18 +156,21 @@ function buttonReady() {
 			document.getElementById('check'+i).onclick = function() {
 				nowQuestion = parseInt(this.id.charAt(this.id.length-1));
 				//console.log(nowQuestion);
-				$("#mbody").load("check.html");
+				//$("#mbody").load("check.html");
+				loadAction("check.html");
 			}
 		}else{
 			document.getElementById('data'+i).onclick = function() {
 				nowQuestion = parseInt(this.id.charAt(this.id.length-1));
 				//console.log(nowQuestion);
-				$("#mbody").load("data.html");
+				//$("#mbody").load("data.html");
+				loadAction("data.html");
 			}
 			document.getElementById('check'+i).onclick = function() {
 				nowQuestion = parseInt(this.id.charAt(this.id.length-1));
 				//console.log(nowQuestion);
-				$("#mbody").load("check.html");
+				//$("#mbody").load("check.html");
+				loadAction("check.html");
 			}
 		}
 	}

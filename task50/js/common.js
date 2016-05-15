@@ -64,3 +64,24 @@ function clone(obj) {
 
     throw new Error("Unable to copy obj! Its type isn't supported.");
 }
+
+function loadAction(htmlNow) {
+        console.log("正在加载...");
+        //$('#load_content').load('http://jqueryui.com/', );  
+        $('#mbody').load(htmlNow, function(responseText, textStatus, XMLHttpRequest) {  
+            //所有状态成功，执行此函数，显示数据  //textStatus四种状态 success、error、notmodified、timeout  
+            if (textStatus == "error") {  
+                var msg = "错误: ";  
+                console.log(msg + XMLHttpRequest.status + " " + XMLHttpRequest.statusText);
+            }  
+            else if (textStatus == "timeout") {  
+                var msg = "操时: ";  
+                console.log(msg + XMLHttpRequest.status + " " + XMLHttpRequest.statusText);
+            }  
+            else {  
+                console.log(msg + XMLHttpRequest.status + " " + XMLHttpRequest.statusText);
+                console.log("加载完成");
+                //$(this).fadeIn();  
+            }  
+        });  
+}

@@ -13,18 +13,21 @@ for (var i = nowA.length - 1; i > 0; i--) {
 showContent();
 if (questionnaire[nowQuestion].state===1 && questionnaire[nowQuestion].time>=new Date()) {
 	document.getElementById("restartAnswer").onclick = function(){
-		$("#mbody").load("check.html");
+		//$("#mbody").load("check.html");
+		loadAction("check.html");
 	}
 	document.getElementById("submitAnswer").onclick = function(){
 		if (checkAll()) {
-			$("#mbody").load("list.html");
+			//$("#mbody").load("list.html");
+			loadAction("list.html");
 		}else{
 			alert("请合理填写问卷！");
 		}
 	}
 }else{
 	document.getElementById("back").onclick = function(){
-		$("#mbody").load("list.html");
+		//$("#mbody").load("list.html");
+		loadAction("list.html");
 	}
 }
 

@@ -17,12 +17,14 @@ dataTime();
 
 document.getElementById("saveQuestion").onclick = function(){
 	if(saveAll(0)){
-		$("#mbody").load("edit.html");
+	//$("#mbody").load("edit.html");
+	loadAction("edit.html");
 	}
 }
 document.getElementById("submitQuestion").onclick = function(){
 	if(saveAll(1)){
-		$("#mbody").load("list.html");
+	//$("#mbody").load("list.html");
+	loadAction("list.html");
 	}
 }
 
