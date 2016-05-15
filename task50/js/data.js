@@ -30,12 +30,13 @@ var color = ["#0DA068","#194E9C","#ED9C13","#ED5713","#057249","#5F91DC","#F88E5
 
 var questionArea = document.getElementById("question");
 
-questionArea.innerHTML = "<div id=cssDetectFoo></div>";
+questionArea.innerHTML = "<div id=cssDetectFoo height='10px'></div>";
 var cssDetect = setInterval("startAll()",50);
 
 // 检测是否加载成功
 function startAll() {
-	if (cssDetectFoo.offsetWidth===1) {
+	console.log(cssDetectFoo.offsetWidth);
+	if (1===cssDetectFoo.offsetWidth) {
 		questionArea.innerHTML = "";
 
 		getDate();
