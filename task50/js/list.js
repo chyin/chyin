@@ -45,10 +45,12 @@ function tableAdd(){
 			tempdata += "<td colspan='2'> <button id='data"+i+"' class='button'>查看数据</button> <button id='check"+i+"' class='button'>查看问卷</button> </td>";
 		}
 
-		list.innerHTML += tempdata + "</tr>";
+		$("#list").append(tempdata+"</tr>");
+		//list.innerHTML += tempdata + "</tr>";
 	}
 	tempdata = "<tr><td><input type='checkbox' name='all' id='all'/></td> <td colspan='5'>  <span class='deleteAll'>全选 <button id='deleteAllButton' class='button'>删除</button></span> </td></tr>";
-	list.innerHTML += tempdata;
+	$("#list").append(tempdata);
+	// list.innerHTML += tempdata; //ie9以下对innerHTML不能作用于table，select元素，可作用于div等元素
 	tableShow();
 	buttonReady();
 }

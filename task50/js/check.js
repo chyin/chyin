@@ -57,7 +57,8 @@ function showContent() {
 				}
 			}
 			temphtml += "</div>";
-			questionArea.innerHTML += temphtml;
+			$("#question").append(temphtml);
+			//questionArea.innerHTML += temphtml;
 		}
 		if (questionnaire[nowQuestion].state===1 && questionnaire[nowQuestion].time>=new Date()) {
 			document.getElementById("saveButton").innerHTML = "<span class='spaceBoth'><button id='restartAnswer' class='button big'>重置</button></span><span class='spaceBoth'><button id='submitAnswer' class='button big'>提交问卷</button></span>";
