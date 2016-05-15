@@ -82,7 +82,8 @@ function showContent() {
 				}
 			}
 			temphtml += "</div>";
-			questionArea.innerHTML += temphtml;
+			$("#question").append(temphtml);
+			//questionArea.innerHTML += temphtml;
 		}
 	}
 	showChart();

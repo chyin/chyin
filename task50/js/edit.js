@@ -62,7 +62,8 @@ function showContent() {
 			}
 			temphtml += "<div class='questionDown'><span id='up"+ i +"' class='spaceBoth pointIt'>上移</span><span id='down"+ i +"' class='spaceBoth pointIt'>下移</span><span id='copy"+ i +"' class='spaceBoth pointIt'>复用</span><span id='delete"+ i +"' class='spaceBoth pointIt'>删除</span></div>"
 			temphtml += "</div>";
-			questionArea.innerHTML += temphtml;
+			$("#question").append(temphtml);
+			//questionArea.innerHTML += temphtml;
 		}
 	}
 	inputAction();
